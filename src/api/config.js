@@ -1,0 +1,1 @@
+export const wp_api_endpoint = "http://127.0.0.1/api/wp";
