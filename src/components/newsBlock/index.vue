@@ -13,7 +13,7 @@
 				<section class="container max-width-90">
 					<spinner v-if="newsBlockLoading" :height="200" :mode="'large'"></spinner>
 					<div class="row news-row">
-						<a class="col-sm-12 col-md-6 col-lg-3 col-news" v-for="news in newsBlock" :key="news.id">
+						<router-link :to="{path: '/post/'+ news.id}" class="col-sm-12 col-md-6 col-lg-3 col-news" v-for="news in newsBlock" :key="news.id">
 							<div v-if="news.hasImage" class="news-prev" :style="{ 'background-image': 'url(' + news.image + ')' }">
 								<img class="news-prew-size" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQcAAAClAQMAAABrxqq1AAAAA1BMVEUmTKgfeyxbAAAAHElEQVQYGe3BAQ0AAADCIPunfg43YAAAAAAAnAsV6gAB/QBKcQAAAABJRU5ErkJggg==">
 							</div>
@@ -29,17 +29,19 @@
 									{{news.title.rendered}}
 								</div>
 							</div>
-						</a>
+						</router-link>
 					</div>
 					<div class="row">
-						<a href="all-news.html" class="col-sm-12 col-md-6 col-lg-3 col-news all-news">
-							<div class="news-description h6 justify-content-end" v-if="currentSection==='news'">
+						<router-link class="col-sm-12 col-md-6 col-lg-3 col-news all-news" to="/news/1/1" v-if="currentSection==='news'">
+							<div class="news-description h6 justify-content-end">
 								<div class="all-n-arrow"></div>Все новости
 							</div>
-							<div class="news-description h6 justify-content-end" v-else>
+						</router-link>
+						<router-link class="col-sm-12 col-md-6 col-lg-3 col-news all-news" to="/news/14/1" v-else>
+							<div class="news-description h6 justify-content-end">
 								<div class="all-n-arrow"></div>Все объявления
 							</div>
-						</a>
+						</router-link>
 					</div>
 				</section>
 			</div>

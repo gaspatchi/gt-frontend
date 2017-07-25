@@ -1,7 +1,9 @@
 import Vue from "vue";
 import Router from "vue-router";
 import Main from "../containers/Main";
-import bigCarousel from "../components/bigCarousel";
+import AllNews from "../containers/AllNews";
+import Post from "../containers/Post";
+import Page from "../containers/Page";
 
 Vue.use(Router);
 
@@ -10,13 +12,19 @@ export default new Router({
 	routes: [
 		{
 			path: "/",
-			name: "Главная",
 			component: Main
 		},
 		{
-			path: "/test",
-			name: "test",
-			component: bigCarousel
+			path: "/news/:category/:page",
+			component: AllNews
+		},
+		{
+			path: "/post/:post_id",
+			component: Post
+		},
+		{
+			path: "/page/:page_id",
+			component: Page
 		}
 	]
 });

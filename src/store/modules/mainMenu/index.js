@@ -22,6 +22,9 @@ const mainMenu = {
 		toggleMenu(store) {
 			store.open = !store.open;
 		},
+		hideMenu(store) {
+			store.open = false;
+		},
 		saveLinks(store, payload) {
 			store.error = false;
 			store.loading = false;

@@ -1,16 +1,16 @@
 <template>
 	<li v-if="itemHasChild(item)" class="dropdown" :class="{active: active}">
-		<a href="#" @click="openItem">{{item.title}}
+		<a @click="openItem">{{item.title}}
 			<div class="icon-arrow"></div>
 		</a>
 		<ul class="dropdown-menu" :class="{show: active}">
 			<li v-for="children in item.children" :key="children.id">
-				<a href="">{{children.title}}</a>
+				<router-link :to="{path: '/page/'+ children.object_id}" v-html="children.title"></router-link>
 			</li>
 		</ul>
 	</li>
-	<li v-else>{{item.title}}
-		<a href=""></a>
+	<li v-else>
+		<router-link :to="{path: '/page/'+ item.object_id}" v-html="item.title"></router-link>
 	</li>
 </template>
 <script>

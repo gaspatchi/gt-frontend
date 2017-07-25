@@ -11,6 +11,7 @@ const newsBlock = {
 	mutations: {
 		startFetch(store) {
 			store.loading = true;
+			store.error = false;
 			store.items = [];
 		},
 		throwError(store) {
@@ -21,7 +22,6 @@ const newsBlock = {
 			store.error = false;
 		},
 		saveItems(store, items) {
-			store.error = false;
 			store.loading = false;
 			store.items = items;
 		},

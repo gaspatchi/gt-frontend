@@ -30,7 +30,7 @@ const topSearch = {
 		},
 		hideError(store) {
 			store.error = false;
-		},
+		}
 	},
 	actions: {
 		async searchItems(store, query) {

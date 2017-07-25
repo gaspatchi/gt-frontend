@@ -1,5 +1,4 @@
 @import "/assets/css/grid.css";
-
 *{font-family: 'Open Sans', sans-serif !important;}
 
 $searchinblue: #23438e;
@@ -39,7 +38,6 @@ button, .button{
 button:active{outline: none;}
 button:hover{outline: none;}
 .button{display: flex; justify-content: center;align-items: center;}
-
 .active{display: block !important;} 
 .inactive{display: none;}
 .shadow {box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.2);}
@@ -81,13 +79,49 @@ button:hover{outline: none;}
     flex-wrap: nowrap;
 }
 
+.swiper-pagination-bullet-active{
+    background: white;
+    width: 14px;
+    height: 14px;
+    margin-bottom: -3px !important;
+}
+.swiper-pagination-bullet{
+    opacity: 1 !important;
+    background: white !important;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.19);
+}
+
+.btn-pulse{
+    animation: pulse-shadow ease-in-out 2s infinite;
+}
+
+@keyframes pulse-shadow {
+  0% {
+    box-shadow: 0 0 0px 0px rgba(39,74,156,.0);
+  }
+  20% {
+    box-shadow: 0 0 0px 7px rgba(39,74,156,.2)
+  }
+}
+
+
+.arrow-to-right{
+    display:inline-block;
+    width: 11px;
+    height: 11px;
+    margin: 4px 0 0 0px;
+    background: url("./assets/icons/all-n-arrow.svg") center no-repeat;
+}
+
+
 .avatar{
     display: none;
     margin: 15px 0 0 15px;
-    background: rgba(0, 0, 0, 0.2) url(https://storage.googleapis.com/material-icons/external-assets/v4/icons/svg/ic_person_white_36px.svg);
+    background-image: url("");
     background-position: center;
     background-repeat: no-repeat;
-    background-size: 60%;
+    background-color: rgba(0, 0, 0, 0.2);
+    background-size: 100%;
     padding: 0;
     cursor: pointer;
 }
@@ -96,16 +130,6 @@ button:hover{outline: none;}
     display: block !important;
 }
 
-.profile-img {
-    background-image: url(/assets/img/avatar.jpg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
-    width: 38px;
-    height: 38px;
-    border-radius: 400px;
-    cursor: pointer;
-}
 
 .btn-white{
     background: white;
@@ -158,7 +182,9 @@ button:hover{outline: none;}
     background: url("./assets/icons/m-search.svg") center no-repeat;
     
 }
-
+.search-input*{
+    transform: translateZ(0);
+}
 
 .search-input{
     position: relative;
@@ -172,6 +198,7 @@ button:hover{outline: none;}
     border-radius: 14px;
     border: 1px solid $borderb;
     transition: all 0.2s ease-in-out !important;
+    transform: translateZ(0);
     input{
         margin-top:2.5px;
         font-size: 14px;
@@ -578,6 +605,7 @@ button:hover{outline: none;}
     overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
     padding-top: 65px;
+    transform: translateZ(0);
 }
 
 .full-menu::-webkit-scrollbar { width: 0 !important }
@@ -619,7 +647,7 @@ button:hover{outline: none;}
     white-space: nowrap;
 }
 
-.spinner-master2 * {transition:all 0.3s;-webkit-transition:all 0.3s;box-sizing:border-box;}
+.spinner-master2 * {transition:all 0.3s;-webkit-transition:all 0.3s;box-sizing:border-box; transform: translateZ(0);}
 
 .spinner-master2 {position:relative;margin:15px auto; margin-top: 23px; margin-left: 2px; height:30px;width:30px;}
 
@@ -656,8 +684,7 @@ input:focus ~ label {
     transition: all 0.2s;
     border-left: 1px solid $borderg;
     box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.1);
-    
-    
+    transform: translateZ(0);
     .exit-btn:active{
         background: $borderb;
     }
@@ -675,6 +702,11 @@ input:focus ~ label {
     .btn-25{margin-left: 10px;}
 }
 .rasp-cont{
+    >div {
+        min-height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
     .exit-btn{
         margin-top: auto;
         background: $primary;
@@ -687,8 +719,10 @@ input:focus ~ label {
         font-size: 12px;
         border-top: 1px solid $borderb;
     }
+    margin-top: -64px;
+    padding-top: 64px;
     display: none;
-    min-height: calc(100% - 63px);
+    height: 100%;
     .title{
         color: $primary;
         text-align: center;
@@ -863,7 +897,7 @@ input:focus ~ label {
     }
     
 }
-#p-close{
+.p-close{
     width: 25px;
     height: 25px;
     fill: $grey;
@@ -1075,7 +1109,7 @@ input:focus ~ label {
     border-radius: 5px 5px 0 0;
     padding: 0 !important;
     width: 100%;
-    background: url(/assets/img/news-logo.jpg);
+    background: url(./assets/img/news-logo.jpg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -1368,7 +1402,34 @@ footer{
        
     }
 }
-
+.type-of-user{
+    color: $t-grey;
+    margin-left: 10px;
+    font-size: 18px;
+}
+.rasp-spinner{
+    position: absolute;
+    width: 100%;
+    background: rgba(255,255,255,0.7);
+}
+.not-a-rasp{
+    padding: 0px 20px 30px 20px; 
+    h6{text-align: center;
+        font-weight: 600; margin: 0 auto 20px auto; font-size: 18px;}
+    p{
+        background: rgba(0, 0, 0, 0.05);
+        border: 1px solid $borderg;
+        border-radius:15px;
+        padding: 10px 15px;
+        font-size: 13px;
+        }
+    .d-flex{
+      width: 100%; 
+        margin-top: 20px;
+        justify-content: center;
+        align-items: center;
+    }
+}
 .login-cont{
     max-width: 250px;
     margin: auto;
@@ -1392,7 +1453,8 @@ footer{
         border: 1px solid $borderg;
     }
     .forget{
-        display:none;
+        width: 100%;
+        display:  block;
         font-weight: 600;
         color: $grey;
         font-size: 13px;
@@ -1427,6 +1489,8 @@ footer{
         input[type="password"]{
             border-radius: 0 0 15px 15px;
         }
+        
+        
     }
     .registration{
         display: none;
@@ -1459,9 +1523,28 @@ footer{
         }
              button{
              margin: auto;
+        }
+    }   
+}
+.forget-box{
+    max-width: 250px;
+    margin: auto;
+    input{
+        border-radius: 15px;
     }
+    p{
+        background: rgba(0, 0, 0, 0.05);
+        border: 1px solid $borderg;
+        border-radius:15px;
+        padding: 10px 15px;
+        font-size: 13px;
+        }
+    .d-flex{
+        .t-grey{
+            margin-right: auto;
+            margin-left: 0;
+        }
     }
-    
 }
 .all-news-row{
     display: flex;
@@ -1482,8 +1565,12 @@ footer{
         font-size: 15px;
     }
     .content{
+        table{
+            width: 100%;
+        }
         img{
-            max-width: 100%;
+            width: 100%;
+            height: auto;
             margin-bottom: 15px;
         }
     }
@@ -1520,7 +1607,6 @@ footer{
             font-weight: 600;
             text-align: center;
             border-bottom: 1px solid $borderg;
-            
         }
         
     }
@@ -1549,7 +1635,6 @@ footer{
         }
     }
     .widget.last-news {
-
         .last-news-items{
             font-size: 13px;
             padding-top: 20px;
@@ -1564,6 +1649,9 @@ footer{
             }
                 .description{
                     line-height: 16px;
+                    p{margin-bottom: 0;
+                        height: 80px;
+                    overflow: hidden;}
                 }
             } 
         }
@@ -1618,17 +1706,44 @@ footer{
     span{
         background: #17357b;
     }
-    a:hover{
+    div:hover{
         background: $searchinblue;
         
     }
-    a:active{
+    div:active{
         background: $searchinblue;
         
     }
-    a:focus{
+    div:focus{
         background: $searchinblue;
-        
+    }
+    .disable{
+        background: #17357b;
+        &:hover{
+            background: #17357b; 
+        }
+    }
+    .prev-disable{
+        background: #17357b;
+        border-radius:  15px 0 0 15px;
+        min-width: 15px;
+        &:hover{
+            background: #17357b; 
+        }
+        svg{
+           display: none; 
+        }
+    }
+    .next-disable{
+        background: #17357b;
+        border-radius: 0 15px 15px 0;
+        min-width: 15px;
+        &:hover{
+            background: #17357b; 
+        }
+        svg{
+           display: none; 
+        }
     }
     .prev{
         svg{margin-bottom: -7px;}
@@ -1700,12 +1815,17 @@ footer{
         width: 100%;
         }
 }
-
+.more-link{
+    display: none;
+    *{
+        display: none;
+    }
+}
 .cover-blur{
     z-index: -1;
     width: 100%;
     height: 400px;
-    background: url(/assets/img/cover-blur.jpg) no-repeat center;
+    background: url(./assets/img/cover-blur.jpg) no-repeat center;
     background-size: cover;
     position: absolute;
 }
@@ -1875,6 +1995,7 @@ border-bottom: 0;
 .rasp-search-container{
     width: 100%;
     transition: 0.3s width ease-in-out;
+    transform: translateZ(0);
     margin: 0 auto; 
 }
 .rasp-search-container.active{
@@ -2206,7 +2327,7 @@ border-bottom: 0;
         overflow: hidden;
         margin: 15px;
         border-radius:5px;
-        background: url(/assets/img/teacher-icon.png) no-repeat center;
+        background: url(./assets/img/teacher-icon.png) no-repeat center;
         background-size: cover;
         display: flex;
 
@@ -2226,8 +2347,6 @@ border-bottom: 0;
     }
 }
 
-
-
 .currnt-name.teacher{
     justify-content: flex-start;
     align-items: flex-start;
@@ -2237,7 +2356,7 @@ border-bottom: 0;
         overflow: hidden;
         margin: 15px;
         border-radius:5px;
-        background: url(/assets/img/teacher-icon.png) no-repeat center;
+        background: url(./assets/img/teacher-icon.png) no-repeat center;
         background-size: cover;
     }
     h5{
@@ -2823,7 +2942,7 @@ body.vim-on{
     .gt-header, .bttn,.other-category, .container.rasp-page .bbtn
                                                      {border-top: 1px solid black}
     footer                                           {border-top: 1px solid white}
-    .courses .course                                 {border: 1px solid black}    
+    .courses .course, .search-input                  {border: 1px solid black}    
     .other-category .container .row > div, footer .col-12:first-child,
     footer .col-12:nth-child(2n) 
                                                      {border-right: 1px solid white;}
@@ -2840,7 +2959,7 @@ body.vim-on{
     .courses .course h5, .after-feedback, .site-sections > li
                                                      {color: black !important; text-shadow: none;}
 
-    .dropdown .icon-arrow{background: url("./assets/icons/dropdown-icon-black.svg") center no-repeat;}
+    .dropdown .icon-arrow{background: url("/assets/icons/dropdown-icon-black.svg") center no-repeat;}
     .dropdown.active, .sub-full-menu{background: #d6dae4;}
     
     .s-footer{background: #080808}
@@ -2849,9 +2968,25 @@ body.vim-on{
     .poor-eyesight{display: none;} 
     .full-menu.opend{padding-top: 120px;}
     .mobile-search-cover{top: 49px;height: calc(100% - 49px);}
-    .mtsc{top: 70px;}
+    
+    
+    
     @media (min-width: 767px){
         .primary-table .currnt-name {border-right: 1px solid black;}
+    }
+    @media (max-width: 767px) {
+        .search-input.show{
+            top:49px;
+            height: calc(100% - 49px);
+            border: 0;
+            border-top: 1px solid black;
+            input{
+                border-bottom: 1px solid black;
+            }
+        }
+        .active-search{
+            top: 70px;
+        }
     }
     @media (min-width: 574px){
         .borderg.rasp-page,  .container-wp-page {border: 1px solid black;}
@@ -2883,17 +3018,19 @@ body.vim-on{
     .news-widgets .category-items button
                                                 {font-size: 14px !important;}
     .news-widgets .widget.vk .vk-news-items .vk-news-item,
-    .primary-table .about-line, .after-feedback
+    .primary-table .about-line, .after-feedback, .news-widgets .widget.last-news .last-news-items .last-news-item .headline,
+    .news-widgets .widget.last-news .last-news-items .last-news-item .description
                                                 {font-size: 15px !important;}
     
     .sub-header-menu .container a, .sub-header-menu .container button,
     .adress, .mail, .phone, .social, .s-footer, .col-news-all .news-description,
-    .primary-table, 
+    .primary-table
     
                                                 {font-size: 16px !important;}
-    .site-sections a, .col-news .news-description,
+    .site-sections a, .site-sections li, .col-news .news-description,
     footer .heading, .news-widgets .widget .heading,.container-wp-page p,
-    .heading-wp-page .date, .primary-table .table-cont h6
+    .heading-wp-page .date, .primary-table .table-cont h6,
+    
                                                 {font-size: 17px !important;}
     .gt-stat .sm-line, .courses .course h5, .col-news-all .news-head-line,
     
@@ -2905,9 +3042,14 @@ body.vim-on{
     .heading-wp-page .headline h1
                                                 {font-size: 27px !important;}
     .news-widgets .widget.vk .vk-news-items .vk-news-item .headline,
-    .news-widgets .widget.vk .vk-news-items .vk-news-item .description
+    .news-widgets .widget.vk .vk-news-items .vk-news-item .description,
+    .news-widgets .widget.last-news .last-news-items .last-news-item .description,
+    .news-widgets .widget.last-news .last-news-items .last-news-item .headline
     
     {line-height: 17px;}
+    .news-widgets .widget.last-news .last-news-items .last-news-item .description p{
+        height: 87px;
+    }
     @media (max-width: 767px) {
         .container.rasp-page #tab-btn span {
             font-size: 15px !important;
@@ -2920,12 +3062,13 @@ body.vim-on{
     .news-widgets .category-items button
                                                 {font-size: 15px !important;}
     .news-widgets .widget.vk .vk-news-items .vk-news-item,
-    .after-feedback
+    .after-feedback, .news-widgets .widget.last-news .last-news-items .last-news-item .headline,
+    .news-widgets .widget.last-news .last-news-items .last-news-item .description
                                                 {font-size: 16px !important;}
     .adress, .mail, .phone, .social, .col-news-all .news-description,
     .primary-table .about-line, .primary-table
                                                 {font-size: 17px !important;}
-    .site-sections a, .col-news .news-description,
+    .site-sections a,  .site-sections li, .col-news .news-description,
     footer .heading, .s-footer, .news-widgets .widget .heading,
     .container-wp-page p, .heading-wp-page .date,.primary-table .table-cont h6, 
     .sub-header-menu .container a
@@ -2941,8 +3084,13 @@ body.vim-on{
     .heading-wp-page .headline h1
                                                 {font-size: 28px !important;}
     .news-widgets .widget.vk .vk-news-items .vk-news-item .headline,
-    .news-widgets .widget.vk .vk-news-items .vk-news-item .description
+    .news-widgets .widget.vk .vk-news-items .vk-news-item .description,
+    .news-widgets .widget.last-news .last-news-items .last-news-item .description,
+    .news-widgets .widget.last-news .last-news-items .last-news-item .headline
     {line-height: 20px;}
+    .news-widgets .widget.last-news .last-news-items .last-news-item .description p{
+        height: 100px;
+    }
     @media (max-width: 767px) {
         .container.rasp-page #tab-btn span {
             font-size: 15px !important;
@@ -2995,19 +3143,21 @@ body.vim-on{
     }
 }
 
-
 .toast-buble.warning{
     background: #F5D91D;
     h5, button{
         color: $black;
     }
 }
+
 .toast-buble.error{
     background: #E12F2B;
 }
-.toast-buble.complete{
+
+.toast-buble.success{
     background: #10AC84;
 }
+
 .toast-buble.info{
     background: #A1A1A1;
     h5{
@@ -3076,14 +3226,11 @@ body.vim-on{
 }
 
 
-
+.news-container{
+    width: 100%;
+}
 
 @media (max-width: 990px){
-    
-
-    
-    
-    
        .primary-table .table-cont {
         input::placeholder {
             color: $grey;
@@ -3097,7 +3244,6 @@ body.vim-on{
             margin-top: 10px;
             margin-bottom: 15px;
         }
-        
     }
     .all-news-row{
     flex-wrap: wrap;
@@ -3105,8 +3251,8 @@ body.vim-on{
 
 .news-widgets{
     display: none;
-
 }
+
 .currnt-name.teacher{
     justify-content: flex-start;
     align-items: flex-start;

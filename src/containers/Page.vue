@@ -5,10 +5,7 @@
 		<mainMenu></mainMenu>
 		<rightMenu></rightMenu>
 		<subHeader></subHeader>
-		<bigCarousel></bigCarousel>
-		<newsBlock></newsBlock>
-		<achievementsBlock></achievementsBlock>
-		<additionalEducation></additionalEducation>
+		<pageBlock></pageBlock>
 		<resourceBlock></resourceBlock>
 		<bottomFooter></bottomFooter>
 	</div>
@@ -20,24 +17,18 @@ import topHeader from "../components/topHeader/";
 import mainMenu from "../components/mainMenu/";
 import rightMenu from "../components/rightMenu/";
 import subHeader from "../components/subHeader/";
-import bigCarousel from "../components/bigCarousel/";
-import newsBlock from "../components/newsBlock/";
-import achievementsBlock from "../components/achievementsBlock/";
-import additionalEducation from "../components/additionalEducation/";
+import pageBlock from "../components/pageBlock/";
 import resourceBlock from "../components/resourceBlock/";
 import bottomFooter from "../components/bottomFooter/";
 export default {
-	name: "Main",
+	name: "Page",
 	components: {
 		Vim,
 		topHeader,
 		mainMenu,
 		rightMenu,
 		subHeader,
-		bigCarousel,
-		newsBlock,
-		achievementsBlock,
-		additionalEducation,
+		pageBlock,
 		resourceBlock,
 		bottomFooter
 	}

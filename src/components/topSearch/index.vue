@@ -4,16 +4,17 @@
 		<div class="hidden-sm-down search-input" :class="{show: topSearchOpen}">
 			<div class="search-icon"></div>
 			<input type="search" placeholder="Поиск по сайту" v-model="searchItems" ref="searchInput" @click="toggleSearchMenu">
-			<spinner v-if="topSearchLoading" :height="170" :mode="'s-result small'"></spinner>
-			<div class="search-resultes" v-if="topSearchHasResults">
-				<a href="#" class="s-result " v-for="result in topSearchResults" :key="result.id">
+			<spinner v-if="topSearchLoading" :height="120" :mode="'s-result small'"></spinner>
+			<div class="search-resultes">
+				<a class="s-result" v-if="!topSearchHasResults">Начните вводить поисковой запрос</a>
+				<router-link :to="{path: '/post/'+ result.id}" class="s-result" v-for="result in topSearchResults" :key="result.id">
 					<h1>{{result.title.rendered}}</h1>
 					<p v-html="result.excerpt.rendered"></p>
-				</a>
+				</router-link>
 			</div>
 		</div>
 		<div :class="{'active-search': topSearchOpen}" @click="toggleSearchMenu"></div>
-		<toast :state="topSearchError" messagetext="Невозможно получить результаты поиска" mode="error"></toast>
+		<toast :state="topSearchError" messagetext="Не удалось загрузить результаты поиска" mode="warning"></toast>
 	</div>
 </template>
 

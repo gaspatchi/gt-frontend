@@ -27,6 +27,7 @@ export default {
 	data() {
 		return {
 			swiperOption: {
+				keyboardControl: true,
 				pagination: ".swiper-pagination",
 				paginationClickable: true,
 				preloadImages: false,

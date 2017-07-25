@@ -6,7 +6,7 @@
 
 <script>
 export default {
-	name: "gtmau"
+	name: "Gtmau"
 };
 </script>
 

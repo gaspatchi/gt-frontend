@@ -11,7 +11,7 @@ const bigCarousel = {
 		startFetch(store) {
 			store.error = false;
 			store.loading = true;
-			store.items = [];
+			store.slides = [];
 		},
 		saveSlides(store, slides) {
 			store.error = false;
