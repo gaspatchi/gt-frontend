@@ -4,6 +4,7 @@ import Main from "../containers/Main";
 import AllNews from "../containers/AllNews";
 import Post from "../containers/Post";
 import Page from "../containers/Page";
+import Schedule from "../containers/Schedule";
 
 Vue.use(Router);
 
@@ -25,6 +26,10 @@ export default new Router({
 		{
 			path: "/page/:page_id",
 			component: Page
+		},
+		{
+			path: "/schedule",
+			component: Schedule
 		}
 	]
 });

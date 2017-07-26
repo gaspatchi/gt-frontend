@@ -8,7 +8,7 @@
 				<a href="">Студентам</a>
 				<a href="">Газета</a>
 				<a href="">Карта сайта</a>
-				<a href="schedule.html">Расписание</a>
+				<router-link to="/schedule">Расписание</router-link>
 				<button id="visually-impaired-mode-on" @click="toggleVim" v-if="!vimOpen">
 					<div class="eye-img"></div>Версия для слабовидящих
 				</button>

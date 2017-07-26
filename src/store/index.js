@@ -9,6 +9,8 @@ import rightMenu from "./modules/rightMenu/";
 import allNews from "./modules/allNews/";
 import postBlock from "./modules/postBlock/";
 import pageBlock from "./modules/pageBlock/";
+import scheduleBlock from "./modules/scheduleBlock/";
+import scheduleSearch from "./modules/scheduleSearch/";
 
 Vue.use(Vuex);
 
@@ -22,7 +24,9 @@ const store = new Vuex.Store({
 		rightMenu,
 		allNews,
 		postBlock,
-		pageBlock
+		pageBlock,
+		scheduleBlock,
+		scheduleSearch
 	}
 });
 

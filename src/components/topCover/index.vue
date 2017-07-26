@@ -1,12 +1,13 @@
 <template>
-	<div class="cover-blur news">
+	<div class="cover-blur" :class="mode">
 		<div class="container">
-			<h1>Новости ГБПОУ ГТМАУ</h1>
+			<h1 v-if="text">{{text}}</h1>
 		</div>
 	</div>
 </template>
 <script>
 export default {
-	name: "topCover"
+	name: "topCover",
+	props: ["mode", "text"]
 };
 </script>

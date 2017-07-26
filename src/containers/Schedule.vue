@@ -5,8 +5,8 @@
 		<mainMenu></mainMenu>
 		<rightMenu></rightMenu>
 		<subHeader></subHeader>
-		<topCover mode="news" text="Новости ГБПОУ ГТМАУ"></topCover>
-		<allNews></allNews>
+		<topCover></topCover>
+		<scheduleBlock></scheduleBlock>
 		<resourceBlock></resourceBlock>
 		<bottomFooter></bottomFooter>
 	</div>
@@ -19,11 +19,11 @@ import mainMenu from "../components/mainMenu/";
 import rightMenu from "../components/rightMenu/";
 import subHeader from "../components/subHeader/";
 import topCover from "../components/topCover/";
-import allNews from "../components/allNews/";
+import scheduleBlock from "../components/scheduleBlock/";
 import resourceBlock from "../components/resourceBlock/";
 import bottomFooter from "../components/bottomFooter/";
 export default {
-	name: "AllNews",
+	name: "Schedule",
 	components: {
 		Vim,
 		topHeader,
@@ -31,7 +31,7 @@ export default {
 		rightMenu,
 		subHeader,
 		topCover,
-		allNews,
+		scheduleBlock,
 		resourceBlock,
 		bottomFooter
 	}

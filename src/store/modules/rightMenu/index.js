@@ -90,7 +90,7 @@ const rightMenu = {
 				store.dispatch("getUserProfile", result.data.token);
 				store.dispatch("getUserSubscriptions", result.data.token);
 			} catch (error) {
-				if (!error.response) {
+				if (!error.response || error == "Error: Request failed with status code 502") {
 					store.commit("showError", { message: "Сервис авторизации недоступен", type: "error" });
 					store.dispatch("hideError", 5000);
 				} else if (error.response.status === 400) {
@@ -114,7 +114,7 @@ const rightMenu = {
 				store.commit("showError", { message: result.data.message, type: "success" });
 				store.dispatch("hideError", 5000);
 			} catch (error) {
-				if (!error.response) {
+				if (!error.response || error == "Error: Request failed with status code 502") {
 					store.commit("showError", { message: "Сервис авторизации недоступен", type: "error" });
 					store.dispatch("hideError", 5000);
 				} else if (error.response.status === 400) {
@@ -133,7 +133,7 @@ const rightMenu = {
 				store.commit("stopFetch");
 				store.commit("changeScreen", "congratulation");
 			} catch (error) {
-				if (!error.response) {
+				if (!error.response || error == "Error: Request failed with status code 502") {
 					store.commit("showError", { message: "Сервис регистрации недоступен", type: "error" });
 					store.dispatch("hideError", 5000);
 				} else if (error.response.status === 400) {
@@ -155,7 +155,7 @@ const rightMenu = {
 				store.commit("saveUserProfile", result.data);
 				store.commit("changeScreen", "profile");
 			} catch (error) {
-				if (!error.response) {
+				if (!error.response || error == "Error: Request failed with status code 502") {
 					store.commit("showError", { message: "Профиль недоступен", type: "error" });
 					store.dispatch("hideError", 5000);
 				} else if (error.response.status === 400) {
@@ -185,7 +185,7 @@ const rightMenu = {
 					store.dispatch("getTeacherSchedule", teachers[0].teacher_id);
 				}
 			} catch (error) {
-				if (!error.response) {
+				if (!error.response || error == "Error: Request failed with status code 502") {
 					store.commit("showError", { message: "Сервис подписок недоступен", type: "error" });
 					store.dispatch("hideError", 5000);
 				} else if (error.response.status === 400) {
@@ -209,7 +209,7 @@ const rightMenu = {
 				result.data.schedule = _.sortBy(result.data.schedule, "index");
 				store.commit("saveGroupSchedule", result.data);
 			} catch (error) {
-				if (!error.response) {
+				if (!error.response || error == "Error: Request failed with status code 502") {
 					store.commit("showError", { message: "Сервис расписания недоступен", type: "error" });
 					store.dispatch("hideError", 5000);
 				} else if (error.response.status === 400) {
@@ -232,7 +232,7 @@ const rightMenu = {
 				result.data.schedule = _.sortBy(result.data.schedule, "index");
 				store.commit("saveTeacherSchedule", result.data);
 			} catch (error) {
-				if (!error.response) {
+				if (!error.response || error == "Error: Request failed with status code 502") {
 					store.commit("showError", { message: "Сервис расписания недоступен", type: "error" });
 					store.dispatch("hideError", 5000);
 				} else if (error.response.status === 400) {
