@@ -2,27 +2,26 @@
 	<div class="other-category">
 		<div class="container">
 			<div class="row">
-				<div class="col-3">
-					<div class="other-c-logo">М</div>
+				<a href="http://stavminobr.ru" target="_blank" class="col-3">
+					<div class="other-c-logo"></div>
 					<span class="hidden-md-down">Министерство
 						<br>образования</span>
-	
-				</div>
-				<div class="col-3">
-					<div class="other-c-logo">М</div>
+				</a>
+				<a href="http://worldskills.ru" target="_blank" class="col-3">
+					<div class="other-c-logo"></div>
+					<span class="hidden-md-down">WorldSkills 
+						<br>Молодые профессионалы</span>
+				</a>
+				<a href="https://www.gosuslugi.ru" target="_blank" class="col-3">
+					<div class="other-c-logo"></div>
+					<span class="hidden-md-down">Портал
+						<br>госуслуг</span>
+				</a>
+				<a href="http://mcx.ru" target="_blank" class="col-3">
+					<div class="other-c-logo"></div>
 					<span class="hidden-md-down">Министерство
-						<br>образования</span>
-				</div>
-				<div class="col-3">
-					<div class="other-c-logo">М</div>
-					<span class="hidden-md-down">Министерство
-						<br>образования</span>
-				</div>
-				<div class="col-3">
-					<div class="other-c-logo">М</div>
-					<span class="hidden-md-down">Министерство
-						<br>образования</span>
-				</div>
+						<br>сельского хозяйства РФ</span>
+				</a>
 			</div>
 		</div>
 	</div>

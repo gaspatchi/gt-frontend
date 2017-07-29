@@ -5,6 +5,9 @@ import AllNews from "../containers/AllNews";
 import Post from "../containers/Post";
 import Page from "../containers/Page";
 import Schedule from "../containers/Schedule";
+import GroupSchedule from "../containers/GroupSchedule";
+import TeacherSchedule from "../containers/TeacherSchedule";
+import NotFound from "../containers/NotFound";
 
 Vue.use(Router);
 
@@ -30,6 +33,18 @@ export default new Router({
 		{
 			path: "/schedule",
 			component: Schedule
+		},
+		{
+			path: "/schedule/group/:group_id",
+			component: GroupSchedule
+		},
+		{
+			path: "/schedule/teacher/:teacher_id",
+			component: TeacherSchedule
+		},
+		{
+			path: "*",
+			component: NotFound
 		}
 	]
 });

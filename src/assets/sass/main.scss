@@ -37,6 +37,7 @@ button, .button{
 }
 button:active{outline: none;}
 button:hover{outline: none;}
+.text-center{text-align: center;}
 .button{display: flex; justify-content: center;align-items: center;}
 .active{display: block !important;} 
 .inactive{display: none;}
@@ -111,6 +112,85 @@ button:hover{outline: none;}
     height: 11px;
     margin: 4px 0 0 0px;
     background: url("./assets/icons/all-n-arrow.svg") center no-repeat;
+}
+
+.wrapper-404 {
+    width: 100%;
+    height: calc(100vh - 65px);
+    min-height: 650px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-direction: column;
+    background: $primary;
+    h1 {
+        font-size: 180px;
+        font-weight: 800;
+        color: white;
+    }
+    .animation {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 350px;
+        z-index: 10;
+        .ufo-404 {
+            width: 300px;
+            flex-shrink: 0;
+        }
+        .track-404 {
+            width: 100px;
+            flex-shrink: 0;
+            margin-top: -200px;
+            margin-bottom: -20px;
+            transform: rotate(0.7rad);
+            animation: ufo-track 7s infinite ease-in-out both;
+        }
+    }
+}
+
+.earth-cover {
+    width: 100%;
+    height: 200px;
+    background: $searchinblue;
+}
+
+@media (max-width: 700px) {
+    .wrapper-404 {
+        min-height: 500px;
+        h1 {
+            font-size: 80px;
+        }
+        .animation {
+            width: 250px;
+            .ufo-404 {
+                width: 250px;
+            }
+            .track-404 {
+                width: 80px;
+                flex-shrink: 0;
+                margin-top: -200px;
+                margin-bottom: 0px;
+            }
+        }
+    }
+    .earth-cover {
+        width: 100%;
+        height: 200px;
+    }
+}
+
+@keyframes ufo-track {
+    0% {
+        transform: translateY(0px) rotate(0.7rad);
+    }
+    50% {
+        transform: translateY(50px) rotate(1rad);
+    }
+    100% {
+        transform: rotate(0.7rad) translateY(0px);
+    }
 }
 
 
@@ -497,28 +577,6 @@ button:hover{outline: none;}
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 .gt-header{
     position: fixed;
@@ -1109,7 +1167,7 @@ input:focus ~ label {
     border-radius: 5px 5px 0 0;
     padding: 0 !important;
     width: 100%;
-    background: url(./assets/img/news-logo.jpg);
+    background: url(./assets/img/news-preview.svg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -1121,7 +1179,7 @@ input:focus ~ label {
     .news-description{
         white-space: nowrap;
         cursor: pointer;
-       float: right;
+        float: right;
         font-weight: 600 !important;
         display:inline-block;
         background: $primary;
@@ -1274,23 +1332,19 @@ input:focus ~ label {
 }
 
 .other-category{
-    background: linear-gradient(to right, #E12F2B 0%,  #E12F2B 50%, #A1A1A1 51%, #A1A1A1 100%);
-    .col-3 {
+    background: linear-gradient(to right, #FCC100 0%,  #FCC100 50%, #F1BF60 51%, #F1BF60 100%);
+    .col-3{
         .other-c-logo{
-            background: white;
-            margin-right: 10px;
             height: 40px;
             width: 40px;
+            flex-shrink: 0;
             border-radius: 100px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 22px;
-            font-weight: 600;
-            color: #E12F2B;
+            background-color: white;
+            margin-right: 15px;
         }
+        font-weight: 700;
         overflow: hidden;
-        background: #E12F2B;
+        background: #FCC100;
         border-top: 1px solid rgba(0,0,0,0.1);
         line-height: 17px;
         color: white;
@@ -1300,26 +1354,45 @@ input:focus ~ label {
         padding: 12px;
         border-left: 1px solid rgba(0,0,0,0.1);
     }
-    .col-3:nth-child(2){
-        background: #F5D91D;
+    .col-3:nth-child(1){
+
         .other-c-logo{
-            color: #F5D91D;
+            background: url(./assets/img/minobr.png) center no-repeat;
+            background-size: 100%;
+        }
+    }
+    .col-3:nth-child(2){
+        background: #D52436;
+
+        .other-c-logo{
+            background: url(./assets/img/worldskills.png) center no-repeat;
+            background-size: 100%;
         }
     }
     .col-3:nth-child(3){
-        background: #10AC84;
+        background: white;
+        
+        span{
+            color: #0065B3;
+        }
         .other-c-logo{
-            color: #10AC84;
+            
+            background: url(./assets/img/gosuslugi.png) center no-repeat;
+            background-size: 100%;
         }
     }
     .col-3:nth-child(4){
         border-right: 1px solid rgba(0,0,0,0.1);
-        background: #A1A1A1;
+        background: #F1BF60;
+        color:  rgba(0,0,0,0.7);
         .other-c-logo{
-            color: #A1A1A1;
+            border: 1px solid rgba(0,0,0,0.1);
+            background: url(./assets/img/mshr.png) center no-repeat;
+            background-size: 100%;
         }
     }
 }
+
 
 footer{
     border-top: 1px solid $f-border;
@@ -2375,7 +2448,7 @@ border-bottom: 0;
         }
         &:only-child{
             margin-left: 0;
-            width: calc(50% - 12.5px;);
+            width: calc(50% - 12.5px);
         }
     }
 }

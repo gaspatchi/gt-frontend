@@ -31,15 +31,15 @@
 					</label>
 				</div>
 				<div class="rasp-results" v-if="scheduleSearchType === 'group'">
-					<a href="#" class="rasp-result" v-for="group in scheduleSearchResults" :key="group.group_id">
+					<router-link :to="{path: '/schedule/group/'+ group.group_id}" class="rasp-result" v-for="group in scheduleSearchResults" :key="group.group_id">
 						<h6>{{group.group}}</h6>
 						<span v-if="group.speciality">{{group.speciality.speciality}}</span>
-					</a>
+					</router-link>
 				</div>
 				<div class="rasp-results" v-else-if="scheduleSearchType === 'teacher'">
-					<a href="#" class="rasp-result" v-for="teacher in scheduleSearchResults" :key="teacher.teacher_id">
+					<router-link :to="{path: '/schedule/teacher/'+ teacher.teacher_id}" class="rasp-result" v-for="teacher in scheduleSearchResults" :key="teacher.teacher_id">
 						<h6>{{teacher.lastname}} {{teacher.firstname[0]}}. {{teacher.patronymic[0]}}.</h6>
-					</a>
+					</router-link>
 				</div>
 				<div class="rasp-results" v-else-if="scheduleSearchType === 'cabinet'">
 					<a href="#" class="rasp-result" v-for="cabinet in scheduleSearchResults" :key="cabinet.cabinet_id">

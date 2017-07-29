@@ -13,7 +13,6 @@
 								<a href="">IT Департамент</a>
 							</p>
 						</div>
-	
 					</div>
 					<div class="col-12 col-sm-6  col-md-4 col-lg-6">
 						<p class="heading">Контакты</p>

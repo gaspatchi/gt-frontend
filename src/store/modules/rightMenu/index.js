@@ -50,7 +50,9 @@ const rightMenu = {
 		saveUserSubscriptions(store, subscriptions) {
 			store.loading = false;
 			store.schedule.groups = subscriptions.groups;
+			store.schedule.group = {};
 			store.schedule.teachers = subscriptions.teachers;
+			store.schedule.teacher = {};
 		},
 		logoutUser(store) {
 			store.authorization.authorized = false;
@@ -177,6 +179,7 @@ const rightMenu = {
 				let result = await getUserSubscriptions(token);
 				let groups = _.slice(_.concat(result.data.send.email.groups, result.data.view.groups), 0, 3);
 				let teachers = _.slice(_.concat(result.data.send.email.teachers, result.data.view.teachers), 0, 1);
+
 				store.commit("saveUserSubscriptions", { groups, teachers });
 				if (_.size(groups) > 0) {
 					store.dispatch("getGroupSchedule", groups[0].group_id);

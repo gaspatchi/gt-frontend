@@ -37,12 +37,10 @@ const scheduleBlock = {
 				let groups = await getGroups();
 				store.commit("saveGroups", groups);
 			} catch (error) {
-				window.console.log(error);
 				if (!error.response || error == "Error: Request failed with status code 502") {
 					store.commit("showError", "Сервис расписания недоступен");
 					store.dispatch("hideError", 5000);
 				} else {
-					window.console.log(error);
 					store.commit("showError", error.response.data.message);
 					store.dispatch("hideError", 5000);
 				}

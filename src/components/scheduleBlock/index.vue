@@ -18,12 +18,12 @@
 					<div class="primary-table" v-for="(specialty, index) in scheduleBlockSpecialties" :key="index" v-if="specialty[0] !== 'undefined' && scheduleBlockFilterCourse(specialty[1],scheduleBlockCurrentCourse).length > 0">
 						<div class="p-table-header">{{specialty[0]}}</div>
 						<div class="table-cont">
-							<a class="btn" v-for="group in scheduleBlockFilterCourse(specialty[1],scheduleBlockCurrentCourse)" :key="group.group_id">{{group.group}}</a>
+							<router-link :to="{path: '/schedule/group/'+ group.group_id}" class="btn" v-for="group in scheduleBlockFilterCourse(specialty[1],scheduleBlockCurrentCourse)" :key="group.group_id">{{group.group}}</router-link>
 						</div>
 					</div>
 					<div class="primary-table" v-for="(specialty, index) in scheduleBlockSpecialties" :key="index" v-if="specialty[0] === 'undefined' && scheduleBlockFilterCourse(specialty[1],scheduleBlockCurrentCourse).length > 0">
 						<div class="table-cont">
-							<a class="btn" v-for="group in scheduleBlockFilterCourse(specialty[1],scheduleBlockCurrentCourse)" :key="group.group_id">{{group.group}}</a>
+							<router-link :to="{path: '/schedule/group/'+ group.group_id}" class="btn" v-for="group in scheduleBlockFilterCourse(specialty[1],scheduleBlockCurrentCourse)" :key="group.group_id">{{group.group}}</router-link>
 						</div>
 					</div>
 				</div>

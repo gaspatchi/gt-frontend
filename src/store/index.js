@@ -11,6 +11,8 @@ import postBlock from "./modules/postBlock/";
 import pageBlock from "./modules/pageBlock/";
 import scheduleBlock from "./modules/scheduleBlock/";
 import scheduleSearch from "./modules/scheduleSearch/";
+import groupSchedule from "./modules/groupSchedule/";
+import teacherSchedule from "./modules/teacherSchedule/";
 
 Vue.use(Vuex);
 
@@ -26,7 +28,9 @@ const store = new Vuex.Store({
 		postBlock,
 		pageBlock,
 		scheduleBlock,
-		scheduleSearch
+		scheduleSearch,
+		groupSchedule,
+		teacherSchedule
 	}
 });
 

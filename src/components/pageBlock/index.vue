@@ -4,7 +4,7 @@
 			<div class="container-wp-page">
 				<div class="heading-wp-page">
 					<spinner v-if="pageBlockLoading" height="400" mode="large"></spinner>
-					<div class="headline">
+					<div class="headline text-center">
 						<h1 v-if="!pageBlockPageEmpty" v-html="pageBlockPage.title.rendered"></h1>
 					</div>
 				</div>
