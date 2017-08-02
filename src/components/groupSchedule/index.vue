@@ -206,6 +206,15 @@ export default {
 			if (!store.getters["rightMenu/profileEmpty"]) {
 				return this.$store.state.rightMenu.user.profile.subscription.schedule;
 			}
+		},
+		groupScheduleCurrentGroup() {
+			return Number(this.$store.state.routerState.params.group_id);
+		}
+	},
+	watch: {
+		groupScheduleCurrentGroup(group_id) {
+			this.$store.commit("scheduleSearch/closeSearch");
+			this.$store.dispatch("groupSchedule/getGroupInfo", group_id);
 		}
 	}
 };

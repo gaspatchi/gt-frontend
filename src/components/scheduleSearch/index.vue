@@ -42,9 +42,9 @@
 					</router-link>
 				</div>
 				<div class="rasp-results" v-else-if="scheduleSearchType === 'cabinet'">
-					<a href="#" class="rasp-result" v-for="cabinet in scheduleSearchResults" :key="cabinet.cabinet_id">
+					<router-link :to="{path: '/schedule/cabinet/'+ cabinet.cabinet_id}" class="rasp-result" v-for="cabinet in scheduleSearchResults" :key="cabinet.cabinet_id">
 						<h6>{{cabinet.cabinet}}</h6>
-					</a>
+					</router-link>
 				</div>
 			</div>
 		</div>

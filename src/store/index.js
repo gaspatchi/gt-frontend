@@ -13,6 +13,7 @@ import scheduleBlock from "./modules/scheduleBlock/";
 import scheduleSearch from "./modules/scheduleSearch/";
 import groupSchedule from "./modules/groupSchedule/";
 import teacherSchedule from "./modules/teacherSchedule/";
+import cabinetSchedule from "./modules/cabinetSchedule/";
 
 Vue.use(Vuex);
 
@@ -30,7 +31,8 @@ const store = new Vuex.Store({
 		scheduleBlock,
 		scheduleSearch,
 		groupSchedule,
-		teacherSchedule
+		teacherSchedule,
+		cabinetSchedule
 	}
 });
 

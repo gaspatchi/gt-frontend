@@ -75,7 +75,7 @@ export default {
 		},
 		postBlockCurrentPost() {
 			return Number(this.$store.state.routerState.params.post_id);
-		},
+		}
 	},
 	watch: {
 		postBlockCurrentPost(post_id) {

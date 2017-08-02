@@ -7,44 +7,83 @@ import Page from "../containers/Page";
 import Schedule from "../containers/Schedule";
 import GroupSchedule from "../containers/GroupSchedule";
 import TeacherSchedule from "../containers/TeacherSchedule";
+import CabinetSchedule from "../containers/CabinetSchedule";
 import NotFound from "../containers/NotFound";
 
 Vue.use(Router);
 
-export default new Router({
+let router = new Router({
 	mode: "history",
 	routes: [
 		{
 			path: "/",
-			component: Main
+			component: Main,
+			meta: {
+				title: "Главная"
+			}
 		},
 		{
 			path: "/news/:category/:page",
-			component: AllNews
+			component: AllNews,
+			meta: {
+				title: "Все записи"
+			}
 		},
 		{
 			path: "/post/:post_id",
-			component: Post
+			component: Post,
+			meta: {
+				title: "Запись"
+			}
 		},
 		{
 			path: "/page/:page_id",
-			component: Page
+			component: Page,
+			meta: {
+				title: "Страница"
+			}
 		},
 		{
 			path: "/schedule",
-			component: Schedule
+			component: Schedule,
+			meta: {
+				title: "Расписание занятий"
+			}
 		},
 		{
 			path: "/schedule/group/:group_id",
-			component: GroupSchedule
+			component: GroupSchedule,
+			meta: {
+				title: "Расписание группы"
+			}
 		},
 		{
 			path: "/schedule/teacher/:teacher_id",
-			component: TeacherSchedule
+			component: TeacherSchedule,
+			meta: {
+				title: "Расписание преподавателя"
+			}
+		},
+		{
+			path: "/schedule/cabinet/:cabinet_id",
+			component: CabinetSchedule,
+			meta: {
+				title: "Расписание кабинета"
+			}
 		},
 		{
 			path: "*",
-			component: NotFound
+			component: NotFound,
+			meta: {
+				title: "404"
+			}
 		}
 	]
 });
+
+router.beforeEach((to, from, next) => {
+	document.title = to.meta.title;
+	next();
+});
+
+export default router;

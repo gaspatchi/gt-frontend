@@ -215,6 +215,15 @@ export default {
 			if (!store.getters["rightMenu/profileEmpty"]) {
 				return this.$store.state.rightMenu.user.profile.subscription.schedule;
 			}
+		},
+		teacherScheduleCurrentTeacher() {
+			return Number(this.$store.state.routerState.params.teacher_id);
+		}
+	},
+	watch: {
+		teacherScheduleCurrentTeacher(teacher_id) {
+			this.$store.commit("scheduleSearch/closeSearch");
+			this.$store.dispatch("teacherSchedule/getTeacherInfo", teacher_id);
 		}
 	}
 };
