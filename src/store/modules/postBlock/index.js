@@ -33,7 +33,6 @@ const postBlock = {
 		},
 		hideError(store) {
 			store.error = false;
-			store.message = "";
 		}
 	},
 	actions: {

@@ -11,7 +11,6 @@
 							<div class="spinner2 diagonal part-2"></div>
 						</label>
 					</div>
-	
 					<router-link :to="'/'" class="a-reset">
 						<div class="logo t-shadow">
 							<div class="name-gt">ГТМАУ</div>
@@ -20,10 +19,10 @@
 				</div>
 				<div class="h-right-part d-flex">
 					<topSearch></topSearch>
-					<a class="btn-40 button btn-white shadow" :class="{inactive: !userAuthorized}">
+					<router-link to="/profile" class="btn-40 button btn-white shadow" :class="{inactive: !userAuthorized}">
 						<div class="hidden-md-up">ЛК</div>
 						<div class="hidden-sm-down">Личный кабинет</div>
-					</a>
+					</router-link>
 					<button class="btn-40 btn-white shadow" @click="toggleRightMenu" v-if="!userAuthorized">
 						Войти
 					</button>

@@ -25,7 +25,6 @@ const pageBlock = {
 		},
 		hideError(store) {
 			store.error = false;
-			store.message = "";
 		},
 	},
 	actions: {

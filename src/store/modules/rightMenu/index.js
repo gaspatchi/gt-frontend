@@ -28,6 +28,9 @@ const rightMenu = {
 		toggleMenu(store) {
 			store.open = !store.open;
 		},
+		openMenu(store) {
+			store.open = true;
+		},
 		changeScreen(store, screen) {
 			store.screen = screen;
 		},
@@ -71,7 +74,6 @@ const rightMenu = {
 		},
 		hideError(store) {
 			store.error = false;
-			store.message = "";
 		},
 		saveGroupSchedule(store, schedule) {
 			store.loading = false;

@@ -28,7 +28,6 @@ const cabinetSchedule = {
 		},
 		hideError(store) {
 			store.error = false;
-			store.message = "";
 		},
 	},
 	actions: {

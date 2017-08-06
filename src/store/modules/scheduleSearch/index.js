@@ -40,7 +40,6 @@ const scheduleSearch = {
 		},
 		hideError(store) {
 			store.error = false;
-			store.message = "";
 		}
 	},
 	actions: {

@@ -16,7 +16,7 @@
 				<div class="select-box">
 					<button class="s-item" v-for="group in subscriptions.groups" :key="group.group_id" :class="{selected: groupSchedule.group_id === group.group_id}" @click="fetchGroup(group.group_id)">{{group.group}}</button>
 				</div>
-				<a class="btn-25 btn-primory shadow-sm btn-plus" href="">+</a>
+				<router-link class="btn-25 btn-primory shadow-sm btn-plus" to="/schedule">+</router-link>
 			</div>
 			<div class="p-menu-table">
 				<table>

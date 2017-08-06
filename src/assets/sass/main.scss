@@ -1,4 +1,3 @@
-@import "/assets/css/grid.css";
 *{font-family: 'Open Sans', sans-serif !important;}
 
 $searchinblue: #23438e;
@@ -12,6 +11,7 @@ $t-grey: #909090;
 $searchin: #8698c1;
 $black: #161616;
 $f-border: #23438E;
+
 
 a{ text-decoration: none;}
 body {background: $background;}
@@ -35,6 +35,7 @@ button, .button{
     font-weight: 700;
     outline: none;
 }
+
 button:active{outline: none;}
 button:hover{outline: none;}
 .text-center{text-align: center;}
@@ -80,6 +81,132 @@ button:hover{outline: none;}
     flex-wrap: nowrap;
 }
 
+.animated-gt-logo{
+    width: 25%;
+    min-width: 200px;
+    position: relative;
+    .logo-without-collectors,
+    .collectors{
+        border-radius: 100%;
+        width: 100%;
+        position: absolute;
+        top: 7%;
+        left: 0;
+        
+    }
+    .cover-1x1{
+        width: 100%;
+        height: auto;
+    }
+}
+.collectors{
+    animation: spin-collectors 5s infinite ease-in-out;
+}
+@keyframes spin-collectors {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+    }
+}
+
+.avatar-pulse{
+    animation: avatar-pulse-shadow ease-in-out 1s;
+    animation-iteration-count: 3;
+}
+
+@keyframes avatar-pulse-shadow {
+  0% {
+    box-shadow: 0 0 0px 0px #E12F2B;
+  }
+  20% {
+    box-shadow: 0 0 0px 3px #E12F2B;
+    }
+}
+
+.advantages-header{
+    background: #274a9c;
+   border-top: $borderb !important;
+   border-bottom: $borderb !important;
+    .line-heading{
+         color: white !important;
+    }
+}
+.advantages {
+    background: $background;
+    background: $searchinblue;
+    margin: 0 -25px;
+    display: flex;
+    justify-content: center;
+    padding: 50px 0;
+    flex-wrap: wrap;
+    .item {
+        background: white;
+        margin: 20px 30px;
+        
+        h6{
+            background: #F9F9F9;
+            font-weight: 600;
+            text-align: center;
+            padding: 20px;
+            border-bottom: 1px solid $borderg;
+            margin: -15px -15px 0 -15px;
+        }
+        border: $borderb !important;
+        padding: 15px;
+        border-radius: 15px;
+        width: 26%;
+        overflow: hidden;
+        img {
+            margin-top: 15px;
+            width: 100%;
+            border: 1px solid $borderg;
+            border-radius: 10px;
+        }
+        p{
+            font-size: 14px;
+            padding: 10px 5px;
+            text-align: center;
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    .advantages {
+    margin: 0 -7px;
+    .item {
+        margin: 20px 0px;
+        }}
+}
+
+.info-settings{
+    height: 50vh;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    .image-info{
+        width: 15%;
+        min-width: 150px;
+        height: auto;
+    }
+    h4{
+        font-weight: 600;
+    }
+    h6{
+        font-size: 17px;
+    }
+    button{
+        margin-top: 20px;
+        font-size: 18px;
+        height: auto !important;
+    }
+}
+
+
 .swiper-pagination-bullet-active{
     background: white;
     width: 14px;
@@ -103,6 +230,60 @@ button:hover{outline: none;}
   20% {
     box-shadow: 0 0 0px 7px rgba(39,74,156,.2)
   }
+}
+
+
+
+@keyframes shake {
+    0% {margin-left: 0;}
+    16% {margin-left: 15px; margin-right: -15px;}
+    32% {margin-left: -15px; margin-right: 15px;}
+    48% {margin-left: 10px; margin-right: -10px;}
+    64% {margin-left: -10px; margin-right: 10px;}
+    100% {margin-left: 0;}
+}
+
+.validation-massage span{
+    display: block;
+    font-size: 13px;
+    text-align: center;
+    color: #E12F2B;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-weight: 600;
+    animation-name: shake;
+    animation-duration: 0.5s;
+}
+.feedback-cont {
+    .validation-massage {
+        padding: 0 15px;
+        span {
+            width: 200px;
+            margin: 5px 0px -4px 0px;
+        }
+    }
+}
+
+.personal-menu {
+    .validation-massage span{
+        margin-top: 10px;
+        margin-bottom: -10px;
+    }
+    .incorrect {
+        margin-top: -1px;
+    }
+}
+.last-news-item{
+    cursor: pointer;
+}
+
+.incorrect{
+    border: 1px solid #E12F2B !important;
+} 
+.primary-table{
+    .incorrect {
+        margin-bottom: 1px;
+    }
 }
 
 
@@ -263,7 +444,7 @@ button:hover{outline: none;}
     
 }
 .search-input*{
-    transform: translateZ(0);
+    will-change:auto;
 }
 
 .search-input{
@@ -278,7 +459,7 @@ button:hover{outline: none;}
     border-radius: 14px;
     border: 1px solid $borderb;
     transition: all 0.2s ease-in-out !important;
-    transform: translateZ(0);
+    will-change: auto;
     input{
         margin-top:2.5px;
         font-size: 14px;
@@ -663,7 +844,7 @@ button:hover{outline: none;}
     overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
     padding-top: 65px;
-    transform: translateZ(0);
+    will-change: auto;
 }
 
 .full-menu::-webkit-scrollbar { width: 0 !important }
@@ -742,11 +923,13 @@ input:focus ~ label {
     transition: all 0.2s;
     border-left: 1px solid $borderg;
     box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.1);
-    transform: translateZ(0);
+    will-change: right;
     .exit-btn:active{
         background: $borderb;
     }
 }
+
+
 .personal-menu::-webkit-scrollbar { width: 0 !important }
 .personal-menu { -ms-overflow-style: none; }
 .personal-menu { overflow: -moz-scrollbars-none; }
@@ -776,6 +959,7 @@ input:focus ~ label {
         color: $white;
         font-size: 12px;
         border-top: 1px solid $borderb;
+        cursor: pointer;
     }
     margin-top: -64px;
     padding-top: 64px;
@@ -1353,6 +1537,7 @@ input:focus ~ label {
         align-items: center;
         padding: 12px;
         border-left: 1px solid rgba(0,0,0,0.1);
+        cursor: pointer;
     }
     .col-3:nth-child(1){
 
@@ -1533,6 +1718,7 @@ footer{
         font-size: 13px;
         text-align: center;
         margin-top: 10px;
+        cursor: pointer;
     }
     .forget.active{
         display: block''
@@ -1619,11 +1805,22 @@ footer{
         }
     }
 }
+.overflow-auto{
+    overflow: auto;
+}
 .all-news-row{
     display: flex;
     flex-wrap: nowrap;
 }
 .container-wp-page{
+    td,
+    th {
+        border: 1px solid $black;
+    }
+    table{
+        width: 100% !important;
+    }
+    overflow: auto;
     padding: 0 30px 30px 30px;
     margin-top: 30px;
     margin-bottom: 10px;
@@ -2068,7 +2265,7 @@ border-bottom: 0;
 .rasp-search-container{
     width: 100%;
     transition: 0.3s width ease-in-out;
-    transform: translateZ(0);
+    will-change:auto;
     margin: 0 auto; 
 }
 .rasp-search-container.active{
@@ -2668,6 +2865,14 @@ border-bottom: 0;
                     justify-content: center;
                     opacity: 0;
                     transition: 0.1s ease-in-out;
+                    border-radius: 400px;
+                    overflow: hidden;
+                    input{
+                        height: 100px;
+                        width: 100px;
+                        opacity: 0;
+                        position: absolute;
+                    }
                     &:hover {
                         background-color: rgba(0, 0, 0, 0.5);
                         opacity: 1;
@@ -2752,7 +2957,7 @@ border-bottom: 0;
     transition: 0.05s background ease-in-out;
 }
 .edit-icon.save{
-    background: url("./assets/icons/edit-icon.svg") center no-repeat;
+    background: url("./assets/icons/save-icon.svg") center no-repeat;
 }
 .add-img-icon{
     background: url("./assets/icons/add-img-icon.svg") center no-repeat;
@@ -2825,6 +3030,7 @@ border-bottom: 0;
         flex-direction: column;
         padding-top: 20px;
         background: $background;
+        border-right: 1px solid $borderg;
         input{
             border: 1px solid $borderg;
             border-radius: 15px;
@@ -2843,7 +3049,6 @@ border-bottom: 0;
         height: 215px;
         width: 100%;
         border: 0;
-        border-left: 1px solid $borderg;
         resize: none;
         font-size: 14px;
         &::placeholder{
@@ -3073,16 +3278,13 @@ body.vim-on{
 .vim-on.black{
     filter: grayscale(100%) invert(100%);
     background: black !important;
-    .news-prev, .profile-img{
-        filter: invert(100%);
-    }
     .s-item{
         color: black;
         &:active{color: black !important}
     }
     .other-category{border-top: 1px solid white}
     .other-category, footer, .visually-impaired-mode, .s-footer, .cover-blur.news, .pagination,.cover-blur,
-    .container-wp-page .content img, .carousel{
+    .container-wp-page .content img, .carousel, .avatar, .news-prev{
         filter: invert(100%);
     }
     
@@ -3105,6 +3307,7 @@ body.vim-on{
     .heading-wp-page .date, .primary-table .table-cont h6,
     
                                                 {font-size: 17px !important;}
+    .to-registrate h6                           {font-size: 18px !important;}
     .gt-stat .sm-line, .courses .course h5, .col-news-all .news-head-line,
     
     .container.rasp-page .bbtn
@@ -3112,7 +3315,7 @@ body.vim-on{
     
     #tab-btn span, .line-heading
                                                 {font-size: 22px !important;}
-    .heading-wp-page .headline h1
+    .heading-wp-page .headline h1, .to-registrate h4
                                                 {font-size: 27px !important;}
     .news-widgets .widget.vk .vk-news-items .vk-news-item .headline,
     .news-widgets .widget.vk .vk-news-items .vk-news-item .description,
@@ -3148,7 +3351,7 @@ body.vim-on{
     
                                                 {font-size: 19px !important;}
     .gt-stat .sm-line, .courses .course h5, .col-news-all .news-head-line,
-    .container.rasp-page .bbtn
+    .container.rasp-page .bbtn, .to-registrate h6
                                                 {font-size: 20px !important;}
     .gt-stat .sm-line, .courses .course h5, .col-news-all .news-head-line
                                                 {font-size: 21px !important;}
@@ -3164,6 +3367,7 @@ body.vim-on{
     .news-widgets .widget.last-news .last-news-items .last-news-item .description p{
         height: 100px;
     }
+    .to-registrate h4                           {font-size: 30px !important;}
     @media (max-width: 767px) {
         .container.rasp-page #tab-btn span {
             font-size: 15px !important;
@@ -3175,13 +3379,13 @@ body.vim-on{
 
 .toast-buble-container{
     position: fixed;
-    bottom: -100px;
+    bottom: -1000px;
     right: 0;
     width: 100%;    
     z-index: 999999;
     display: flex;
     padding: 10px;
-    transition: 0.2s bottom ease-in-out;
+    transition: 0.7s bottom ease-in-out;
     justify-content: center;
     .toast-buble{
         box-shadow: 0;
@@ -3703,6 +3907,7 @@ body.vim-on{
     .feedback-cont {
         flex-direction: column;
         .feedback-info {
+            border-left: 0;
             padding-bottom: 30px;
             flex-direction: row;
             flex-wrap: wrap;

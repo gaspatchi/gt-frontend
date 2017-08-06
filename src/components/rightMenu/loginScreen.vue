@@ -1,8 +1,11 @@
 <template>
 	<div class="login active" v-if="active">
 		<h6>Добро пожаловать</h6>
-		<input type="login" placeholder="email" spellcheck="false" v-model.trim="email">
-		<input type="password" placeholder="Пароль" v-model.trim="password">
+		<input type="login" v-validate="'required|email'" data-vv-delay="2000" placeholder="Email" name="Email" spellcheck="false" v-model.trim="email" :class="{incorrect:errors.has('Email')}">
+		<input type="password" v-validate="'required'" data-vv-delay="1000" name="Пароль" placeholder="Пароль" v-model.trim="password" :class="{incorrect:errors.has('Пароль')}">
+		<div class="validation-massage shake" v-if="errors.any()"><span>{{ errors.first('Email') }}
+			<br>{{ errors.first('Пароль') }}</span>
+		</div>
 		<div class="d-flex">
 			<button class="btn-primory btn-40" @click="postLogin">Войти</button>
 			<button class="t-grey btn-40" @click="changeScreen('registration')">Регистрация</button>
@@ -21,8 +24,11 @@ export default {
 		};
 	},
 	methods: {
-		postLogin() {
-			this.$emit("postLogin", { email: this.email, password: this.password });
+		async postLogin() {
+			let correct = await this.$validator.validateAll();
+			if (correct) {
+				this.$emit("postLogin", { email: this.email, password: this.password });
+			}
 		},
 		changeScreen(screen) {
 			this.$emit("changeScreen", screen);

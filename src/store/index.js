@@ -14,6 +14,9 @@ import scheduleSearch from "./modules/scheduleSearch/";
 import groupSchedule from "./modules/groupSchedule/";
 import teacherSchedule from "./modules/teacherSchedule/";
 import cabinetSchedule from "./modules/cabinetSchedule/";
+import feedbackForm from "./modules/feedbackForm/";
+import userProfile from "./modules/userProfile/";
+import verificationBlock from "./modules/verificationBlock/";
 
 Vue.use(Vuex);
 
@@ -32,7 +35,10 @@ const store = new Vuex.Store({
 		scheduleSearch,
 		groupSchedule,
 		teacherSchedule,
-		cabinetSchedule
+		cabinetSchedule,
+		feedbackForm,
+		userProfile,
+		verificationBlock
 	}
 });
 

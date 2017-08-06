@@ -3,8 +3,7 @@ export const usver_api_endpoint = "http://127.0.0.1/api/user";
 export const sucriber_api_endpoint = "http://127.0.0.1/api/subscribe";
 export const schedler_api_endpoint = "http://127.0.0.1/api/schedule";
 export const inforer_api_endpoint = "http://127.0.0.1/api/info";
-
-
+export const feedbacker_api_endpoint = "http://127.0.0.1/api/feedback";
 
 export const wp_news_category = 1;
 export const wp_slider_category = 7;

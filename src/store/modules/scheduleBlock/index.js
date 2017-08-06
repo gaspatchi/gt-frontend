@@ -27,7 +27,6 @@ const scheduleBlock = {
 		},
 		hideError(store) {
 			store.error = false;
-			store.message = "";
 		}
 	},
 	actions: {

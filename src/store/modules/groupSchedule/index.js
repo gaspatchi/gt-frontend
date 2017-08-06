@@ -40,7 +40,6 @@ const groupSchedule = {
 		},
 		hideError(store) {
 			store.error = false;
-			store.message = "";
 		}
 	},
 	actions: {

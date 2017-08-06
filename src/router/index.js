@@ -8,6 +8,9 @@ import Schedule from "../containers/Schedule";
 import GroupSchedule from "../containers/GroupSchedule";
 import TeacherSchedule from "../containers/TeacherSchedule";
 import CabinetSchedule from "../containers/CabinetSchedule";
+import Feedback from "../containers/Feedback";
+import UserProfile from "../containers/UserProfile";
+import VerificationPage from "../containers/VerificationPage";
 import NotFound from "../containers/NotFound";
 
 Vue.use(Router);
@@ -69,6 +72,27 @@ let router = new Router({
 			component: CabinetSchedule,
 			meta: {
 				title: "Расписание кабинета"
+			}
+		},
+		{
+			path: "/feedback",
+			component: Feedback,
+			meta: {
+				title: "Обратная связь"
+			}
+		},
+		{
+			path: "/profile",
+			component: UserProfile,
+			meta: {
+				title: "Личный кабинет"
+			}
+		},
+		{
+			path: "/verification/:type/:token",
+			component: VerificationPage,
+			meta: {
+				title: "Верификация"
 			}
 		},
 		{

@@ -25,7 +25,6 @@ const allNews = {
 		},
 		hideError(store) {
 			store.error = false;
-			store.message = "";
 		},
 		savePosts(store, posts) {
 			store.loading = false;
