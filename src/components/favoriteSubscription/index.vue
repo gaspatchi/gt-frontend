@@ -5,7 +5,6 @@
 			<div class="hidden-sm-down" v-if="emailExists">В подписках</div>
 			<div class="hidden-sm-down" v-else-if="viewExists">В избранном</div>
 			<div class="hidden-sm-down" v-else>Подписаться</div>
-	
 		</div>
 		<div class="context-menu" :class="{active:open}">
 			<div class="context-arrow"></div>

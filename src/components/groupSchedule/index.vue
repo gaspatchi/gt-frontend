@@ -61,7 +61,7 @@
 									<td class="teacher">Преподаватель</td>
 									<td class="class-room">
 										<div class="hidden-lg-up">Каб.</div>
-										<div class="hidden-md-down">Кабиент</div>
+										<div class="hidden-md-down">Кабинет</div>
 									</td>
 								</tr>
 	
@@ -178,7 +178,7 @@ export default {
 				case 3:
 					return "Третий";
 				case 4:
-					return "Четвертый";
+					return "Четвёртый";
 			}
 		},
 		groupSchedule() {

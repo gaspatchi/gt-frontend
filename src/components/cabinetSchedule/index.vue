@@ -170,7 +170,7 @@ export default {
 				case 3:
 					return "Третий";
 				case 4:
-					return "Четвертый";
+					return "Четвёртый";
 				case 5:
 					return "Пятый";
 			}
@@ -184,7 +184,7 @@ export default {
 				case 3:
 					return "Третий";
 				case 4:
-					return "Четвертый";
+					return "Четвёртый";
 				case 5:
 					return "Пятый";
 			}

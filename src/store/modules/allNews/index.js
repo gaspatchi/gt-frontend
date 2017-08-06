@@ -49,7 +49,7 @@ const allNews = {
 				store.commit("savePosts", posts);
 			} catch (error) {
 				if (!error.response || error == "Error: Request failed with status code 502") {
-					store.commit("showError", "Невозможно получить список новостей");
+					store.commit("showError", "Не удаётся получить список новостей");
 					store.dispatch("hideError", 5000);
 				} else {
 					store.commit("showError", error.response.data.message);
@@ -63,7 +63,7 @@ const allNews = {
 				store.commit("saveCategories", categories);
 			} catch (error) {
 				if (!error.response || error == "Error: Request failed with status code 502") {
-					store.commit("showError", "Невозможно получить список категорий");
+					store.commit("showError", "Не удаётся получить список категорий");
 					store.dispatch("hideError", 5000);
 				} else {
 					store.commit("showError", error.response.data.message);

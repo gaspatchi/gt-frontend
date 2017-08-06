@@ -60,7 +60,7 @@ export default {
 			return this.verificationBlockType === "reset" ? "Успешный сброс пароля" : "Успешная верификация";
 		},
 		verificationBlockSuccessDescription() {
-			return this.verificationBlockType === "reset" ? "Войдите в аккаунт с паролем, отправленным в пиьсме" : "Войдите чтобы воспользоваться нашим сервисом";
+			return this.verificationBlockType === "reset" ? "Войдите в аккаунт с паролем, отправленным в письме " : "Войдите чтобы воспользоваться нашим сервисом";
 		},
 		verificationBlockErrorTitle() {
 			return this.verificationBlockType === "registration" ? "Невозможно произвести регистрацию" : "Невозможно произвести верификацию";

@@ -17,7 +17,7 @@
 						<input type="radio" value="teacher" v-model="type" @click="changeSearchType">
 						<div class="checkmark"></div>
 						<span>
-							<div class="hidden-lg-up">Препод.</div>
+							<div class="hidden-lg-up">Преп.</div>
 							<div class="hidden-md-down">Преподаватель</div>
 						</span>
 					</label>

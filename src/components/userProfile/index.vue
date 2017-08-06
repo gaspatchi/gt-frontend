@@ -40,7 +40,7 @@
 				<img class="cover-1x1" src="../../assets/img/animated_logo/1x1-cover.svg">
 			</div>
 			<h4>Вы не вошли в аккаунт</h4>
-			<h6>Войдите чтобы воспользоваться нашим сервисом</h6>
+			<h6>Войдите чтобы воспользоваться возможностями нашего сервиса </h6>
 			<button class="btn-primory btn-40 btn-pulse" @click="openRightMenu">Войти в профиль</button>
 		</div>
 	</div>

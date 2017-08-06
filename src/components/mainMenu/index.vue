@@ -3,7 +3,7 @@
 		<div class="poor-eyesight  hidden-lg-up">
 			<div class="container ">
 				<button class="shadow" id="visually-impaired-mode-on-mobile" @click="toggleVimPanel" v-if="!vimOpen">
-					<div class="eye-img"></div>Версия для слабовидящих </button>
+					<div class="eye-img"></div>Версия для слабовидящих</button>
 			</div>
 		</div>
 		<div class="container">

@@ -35,7 +35,7 @@ const pageBlock = {
 				store.commit("savePage", page);
 			} catch (error) {
 				if (!error.response) {
-					store.commit("showError", "Невозможно получить страницу");
+					store.commit("showError", "Не удаётся получить страницу");
 					store.dispatch("hideError", 5000);
 				} else {
 					store.commit("showError", error.response.data.message);

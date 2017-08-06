@@ -1,7 +1,7 @@
 <template>
 	<div class="congratulations active" v-if="active">
 		<h6>Готово!</h6>
-		<p>Письмо с подтверждением регистрации отправлено на ваш email адрес, следуйте инструкциям.</p>
+		<p>Ссылка на подтверждение аккаунта отправлена на указанный email адрес.</p>
 		<div class="d-flex">
 			<button class=" btn-primory btn-40" @click="changeScreen">Выполнить вход</button>
 		</div>

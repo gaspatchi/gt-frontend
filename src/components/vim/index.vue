@@ -19,7 +19,7 @@
 				</div>
 			</div>
 			<div class="choose-color">
-				<label class="hidden-sm-down">Цвет сайта: </label>
+				<label class="hidden-sm-down">Цветовая схема: </label>
 				<div class="color-group">
 					<button class="color-mode1" @click="toggleVimBlack(false)"></button>
 					<button class="color-mode2" @click="toggleVimBlack(true)"></button>

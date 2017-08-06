@@ -6,7 +6,7 @@
 					<div class="headline">
 						<h1>Форма обратной связи</h1>
 					</div>
-					<p>Давно выяснено, что при оценке дизайна и композиции читаемый текст мешает сосредоточиться. Lorem Ipsum используют потому, что тот обеспечивает более или менее стандартное заполнение шаблона.</p>
+					<p>Добавить текст</p>
 					<div class="feedback-cont">
 						<div class="feedback-info">
 							<input type="text" v-validate="'required|min:2'" data-vv-delay="1000" name="Имя" placeholder="Имя" v-model="firstname" :class="{incorrect:errors.has('Имя')}">
@@ -30,7 +30,7 @@
 					</div>
 					<div class="after-feedback">
 						<div class="feedback-stat">
-							<span>{{feedbackFormCount}}</span> - столько человек уже воспользовались формой обратной связи</div>
+							<span>{{feedbackFormCount}}</span> - общее количество обращений через форму обратной связи</div>
 						<button class="btn-40 btn-primory shadow" @click="postFeedbackForm">Отправить</button>
 					</div>
 					<spinner v-if="feedbackFormLoading" :height="50" mode="small"></spinner>

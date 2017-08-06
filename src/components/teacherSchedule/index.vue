@@ -60,7 +60,7 @@
 									<td class="teacher">Группа</td>
 									<td class="class-room">
 										<div class="hidden-lg-up">Каб.</div>
-										<div class="hidden-md-down">Кабиент</div>
+										<div class="hidden-md-down">Кабинет</div>
 									</td>
 								</tr>
 								<tr class="line-lession" v-for="pair in teacherSchedule" :key="pair.index">

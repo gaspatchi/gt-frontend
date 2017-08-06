@@ -44,7 +44,7 @@ const postBlock = {
 				store.dispatch("getPosts");
 			} catch (error) {
 				if (!error.response) {
-					store.commit("showError", "Невозможно получить запись");
+					store.commit("showError", "Не удаётся получить запись");
 					store.dispatch("hideError", 5000);
 				} else {
 					store.commit("showError", error.response.data.message);
@@ -58,7 +58,7 @@ const postBlock = {
 				store.commit("savePosts", posts);
 			} catch (error) {
 				if (!error.response) {
-					store.commit("showError", "Невозможно получить последние записи");
+					store.commit("showError", "Не удаётся получить последние записи");
 					store.dispatch("hideError", 5000);
 				} else {
 					store.commit("showError", error.response.data.message);
