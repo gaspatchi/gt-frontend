@@ -1,4 +1,4 @@
-import { wp_api_endpoint } from "../config";
+import { wp_api_endpoint, wp_slider_category } from "../config";
 import _ from "lodash";
 import axios from "axios";
 
@@ -50,7 +50,7 @@ export async function getPosts(category, page) {
 }
 
 export async function getCategories() {
-	let categories = await axios.get(`${wp_api_endpoint}/wp/v2/categories`, { timeout: 3000, params: { exclude: 7 } });
+	let categories = await axios.get(`${wp_api_endpoint}/wp/v2/categories`, { timeout: 3000, params: { exclude: wp_slider_category } });
 	categories = _.map(categories.data, (category) => _.pick(category, ["id", "name"]));
 	return categories;
 }

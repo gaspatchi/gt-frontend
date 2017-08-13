@@ -1,11 +1,19 @@
 <template>
 	<div class="carousel">
 		<spinner v-if="bigCarouselLoading" :height="200" :mode="'large'"></spinner>
-		<img v-if="bigCarouselError" src="../../assets/img/cover-blur.jpg"></img>
 		<swiper :options="swiperOption" v-if="!bigCarouselError">
-			<swiper-slide v-for="image in slidesImages" :key="image.id" :style="{ 'background-image': 'url(' + image.source_url + ')' }" style="background-repeat: no-repeat;background-position: center;background-size: cover;">
-				<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAADAQMAAACUBtwLAAAAA1BMVEVHcEyC+tLSAAAAAXRSTlMAQObYZgAAAApJREFUCB1jAAMAAAYAAcXjo3IAAAAASUVORK5CYII=" style="width:100%; height:auto" />
-			</swiper-slide>
+			<swiper-slide v-for="slide in slidesImages" :key="slide.image.id" :style="{ 'background-image': 'url(' + slide.image.source_url + ')' }" style="background-repeat: no-repeat; background-position: center center; background-size: cover; width: 100%;">
+				<div class="coruecel-text">
+					<div class="container">
+						<div class="heading" v-if="slide.post.title.rendered">
+							<h1 v-html="slide.post.title.rendered"></h1>
+						</div>
+						<div class="content" v-if="slide.post.excerpt.rendered">
+							<p class=" line-clamp line-clamp-4" v-html="slide.post.excerpt.rendered"></p>
+						</div>
+					</div>
+				</div>
+				<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAADAQMAAACUBtwLAAAAA1BMVEVHcEyC+tLSAAAAAXRSTlMAQObYZgAAAApJREFUCB1jAAMAAAYAAcXjo3IAAAAASUVORK5CYII=" style="width: 100%; height: auto;"> </swiper-slide>
 			<div class="swiper-pagination" slot="pagination"></div>
 		</swiper>
 	</div>
@@ -15,7 +23,6 @@
 import store from "../../store/";
 import { swiper, swiperSlide } from "vue-awesome-swiper";
 import spinner from "../spinner/";
-
 export default {
 	name: "bigCarousel",
 	store,

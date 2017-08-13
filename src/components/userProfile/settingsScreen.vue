@@ -5,13 +5,13 @@
 				<div class="p-table-header">Имя и фамилия</div>
 				<div class="table-cont" :class="{incorrect:errors.has('Имя')}">
 					<h6>Имя:</h6>
-					<input class="edit-input" type="text" v-validate="'min:2'" name="Имя" v-model.trim="data.firstname" :readonly="!state.firstname">
+					<input class="edit-input" type="text" v-validate="'min:2|max:15'" name="Имя" v-model.trim="data.firstname" :readonly="!state.firstname">
 					<div class="edit-icon" v-if="state.firstname === false" @click="toggleInput('firstname',true)"></div>
 					<div class="edit-icon save" v-else @click="updateProfile('firstname')"></div>
 				</div>
 				<div class="table-cont" :class="{incorrect:errors.has('Фамилия')}">
 					<h6>Фамилия:</h6>
-					<input class="edit-input" type="text" v-validate="'min:2'" name="Фамилия" v-model.trim="data.lastname" :readonly="!state.lastname">
+					<input class="edit-input" type="text" v-validate="'min:2|max:15'" name="Фамилия" v-model.trim="data.lastname" :readonly="!state.lastname">
 					<div class="edit-icon" v-if="state.lastname === false" @click="toggleInput('lastname',true)"></div>
 					<div class="edit-icon save" v-else @click="updateProfile('lastname')"></div>
 				</div>
@@ -40,7 +40,7 @@
 				</div>
 				<div class="table-cont write-new-password show" v-if="state.password==='change'" :class="{incorrect:errors.has('Пароль')}">
 					<h6 class="hidden-md-down">Новый пароль:</h6>
-					<input type="password" placeholder="Новый пароль" v-validate="'required|min:5'" v-model.trim="data.password" name="Пароль">
+					<input type="password" placeholder="Новый пароль" v-validate="'required|min:4'" v-model.trim="data.password" name="Пароль">
 					<button class="btn-40 btn-primory shadow new-pass" @click="updateProfile('password')">Далее</button>
 				</div>
 			</div>
@@ -49,6 +49,7 @@
 </template>
 
 <script>
+import punycode from "punycode";
 export default {
 	name: "settingsScreen",
 	props: ["empty", "profile"],
@@ -63,7 +64,7 @@ export default {
 			data: {
 				firstname: this.$props.profile.info.profile.firstname,
 				lastname: this.$props.profile.info.profile.lastname,
-				email: this.$props.profile.info.contacts.email,
+				email: punycode.toUnicode(this.$props.profile.info.contacts.email),
 				number: this.$props.profile.info.contacts.number,
 				password: ""
 			}
@@ -91,7 +92,6 @@ export default {
 				}
 			},
 			set(value) {
-
 				this.data.number = value;
 			}
 		}

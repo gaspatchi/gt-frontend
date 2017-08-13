@@ -9,11 +9,11 @@
 					<p>Добавить текст</p>
 					<div class="feedback-cont">
 						<div class="feedback-info">
-							<input type="text" v-validate="'required|min:2'" data-vv-delay="1000" name="Имя" placeholder="Имя" v-model="firstname" :class="{incorrect:errors.has('Имя')}">
+							<input type="text" v-validate="'required|min:2|max:15'" data-vv-delay="1000" name="Имя" placeholder="Имя" v-model="firstname" :class="{incorrect:errors.has('Имя')}">
 							<div class="validation-massage shake" v-if="errors.has('Имя')">
 								<span>{{ errors.first('Имя') }}</span>
 							</div>
-							<input type="text" v-validate="'required|min:2'" data-vv-delay="1000" name="Фамилия" placeholder="Фамилия" v-model="lastname" :class="{incorrect:errors.has('Фамилия')}">
+							<input type="text" v-validate="'required|min:2|max:15'" data-vv-delay="1000" name="Фамилия" placeholder="Фамилия" v-model="lastname" :class="{incorrect:errors.has('Фамилия')}">
 							<div class="validation-massage shake" v-if="errors.has('Фамилия')">
 								<span>{{ errors.first('Фамилия') }}</span>
 							</div>
@@ -21,7 +21,7 @@
 							<div class="validation-massage shake" v-if="errors.has('Телефон')">
 								<span>{{ errors.first('Телефон') }}</span>
 							</div>
-							<input type="text" v-validate="'required|email'" data-vv-delay="2000" name="Email" placeholder="Email" v-model="email" :class="{incorrect:errors.has('Email')}">
+							<input type="text" v-validate="'required|email|min:2|max:50'" data-vv-delay="2000" name="Email" placeholder="Email" v-model="email" :class="{incorrect:errors.has('Email')}">
 							<div class="validation-massage shake" v-if="errors.has('Email')">
 								<span>{{ errors.first('Email') }}</span>
 							</div>
@@ -45,6 +45,7 @@
 import store from "../../store/";
 import spinner from "../spinner/";
 import toast from "../toast/";
+import punycode from "punycode";
 export default {
 	name: "feedbackForm",
 	store,
@@ -72,7 +73,7 @@ export default {
 					firstname: this.firstname,
 					lastname: this.lastname,
 					number: this.number,
-					email: this.email,
+					email: punycode.toASCII(this.email),
 					text: this.text
 				});
 			}

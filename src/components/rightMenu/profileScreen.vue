@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<h5 class="title bbtn" v-if="!groupScheduleEmpty">Расписание на
-			<a href="">{{groupScheduleDate}}</a>
+			<router-link :to="{path: '/schedule/group/'+ groupSchedule.group_id}"> {{groupScheduleDate}}</router-link>
 		</h5>
 		<h5 class="title bbtn" v-else>Расписание занятий</h5>
 		<div>
@@ -9,7 +9,7 @@
 				<h6>Сейчас тут пусто</h6>
 				<p>На этом месте будут оторбаражться избранные группы и преподаватели, вы можете легко добавить их, просто нажмите на кнопку ниже.</p>
 				<div class="d-flex">
-					<button class=" btn-primory btn-40 btn-pulse" id="back-to-enter2">Выбрать расписание</button>
+					<router-link class="btn-primory btn-40 btn-pulse" tag="button" to="/schedule">Выбрать расписание</router-link>
 				</div>
 			</div>
 			<div class="select-box-wrapper" v-if="!groupScheduleEmpty">
@@ -45,9 +45,9 @@
 				<div class="select-box">
 					<button class="s-item selected">{{subscriptions.teachers[0].lastname}} {{subscriptions.teachers[0].firstname[0]}}. {{subscriptions.teachers[0].patronymic[0]}}.</button>
 				</div>
-				<a class="btn-25 btn-primory shadow-sm btn-plus" href="">
+				<router-link to="/schedule" class="btn-25 btn-primory shadow-sm btn-plus">
 					<div class="arrow-to-right"></div>
-				</a>
+				</router-link>
 			</div>
 			<div class="p-menu-table">
 				<table>

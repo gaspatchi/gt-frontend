@@ -1,3 +1,4 @@
+@import "/assets/css/grid.css";
 *{font-family: 'Open Sans', sans-serif !important;}
 
 $searchinblue: #23438e;
@@ -36,6 +37,10 @@ button, .button{
     outline: none;
 }
 
+
+
+
+
 button:active{outline: none;}
 button:hover{outline: none;}
 .text-center{text-align: center;}
@@ -54,6 +59,7 @@ button:hover{outline: none;}
 .ml-auto{margin-left: auto !important}
 .mb-15{margin-bottom: 15px;}
 .mt-0{margin-top: 0;};
+.mb-0{margin-bottom: 0;}
 .p-top-30{padding-top: 30px;}
 .h500{height: 500px;}
 .bg-white{background: white;}
@@ -81,6 +87,130 @@ button:hover{outline: none;}
     flex-wrap: nowrap;
 }
 
+.coruecel-text{
+    text-shadow:  0px 2px 4px rgba(0, 0, 0, 0.3);
+    margin-top: 50px;
+    position: absolute;
+    width: 100%;
+    color: white;
+    h1{
+        font-weight: 600;
+    }
+    .content{
+        width: 30%;
+        p{
+            font-size: 18px;
+        }
+    }
+}
+.swiper-slide{
+    overflow-y: scroll;
+}
+@media (max-width: 990px) {
+    .coruecel-text {
+        margin-top: 30px;
+        .content {
+            width: 80%;
+        }
+    }
+}
+@media (max-width: 767px) {
+    .coruecel-text {
+        h1 {
+                font-size: 26px;
+            }
+        margin-top: 30px;
+        .content {
+            width: 100%;
+            
+        }
+    }
+}
+.swiper-slide{
+    min-height: 200px;
+}
+
+.swiper-slide{
+    position: relative;
+}
+@media (max-width: 574px) {
+    .coruecel-text {
+        margin-top: 10px;
+        .content {
+            width: 100%;
+        }
+    }
+}
+
+
+
+
+
+
+
+
+@media (max-width: 767px) {
+    .line-clamp {
+        display: block;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        position: relative;
+        line-height: 1.2;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        padding: 0 !important;
+    }
+    .line-clamp:after {
+        content: '...';
+        text-align: right;
+        bottom: 0;
+        right: 0;
+        width: 25%;
+        display: block;
+        position: absolute;
+        height: calc(1em * 1.2);
+        background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1) 75%);
+    }
+    @supports (-webkit-line-clamp: 1) {
+        .line-clamp:after {
+            display: none !important;
+        }
+    }
+    .line-clamp-1 {
+        -webkit-line-clamp: 1;
+        height: calc(1em * 1.2 * 1);
+    }
+    .line-clamp-2 {
+        -webkit-line-clamp: 2;
+        height: calc(1em * 1.2 * 2);
+    }
+    .line-clamp-3 {
+        -webkit-line-clamp: 3;
+        height: calc(1em * 1.2 * 3);
+    }
+    .line-clamp-4 {
+        -webkit-line-clamp: 4;
+        height: calc(1em * 1.2 * 4);
+    }
+    .line-clamp-5 {
+        -webkit-line-clamp: 5;
+        height: calc(1em * 1.2 * 5);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .animated-gt-logo{
     width: 25%;
     min-width: 200px;
@@ -91,8 +221,7 @@ button:hover{outline: none;}
         width: 100%;
         position: absolute;
         top: 7%;
-        left: 0;
-        
+        left: 0;  
     }
     .cover-1x1{
         width: 100%;
@@ -209,8 +338,8 @@ button:hover{outline: none;}
 
 .swiper-pagination-bullet-active{
     background: white;
-    width: 14px;
-    height: 14px;
+    width: 14px !important;
+    height: 14px !important;
     margin-bottom: -3px !important;
 }
 .swiper-pagination-bullet{
@@ -1196,6 +1325,7 @@ input:focus ~ label {
 .dropdown {
     border-radius: 15px;
     width: 100%;
+    cursor: pointer;
     
 }
 .dropdown.active{
@@ -1288,10 +1418,6 @@ input:focus ~ label {
 .carousel{
     width: 100%;
     background: $borderg;
-    img{
-        width: 100%;
-        height: 50vh;
-    }
 }
 
 
@@ -1466,11 +1592,12 @@ input:focus ~ label {
     background: url("./assets/icons/car-icon.svg") center no-repeat;
     margin: -15px auto 0 auto;
 }
-.flover-icon{
-    width: 80px;
-    height: 80px;
-    background: url("./assets/icons/flover-icon.svg") center no-repeat;
+.tractor-icon{
+    width: 70px;
+    height: 70px;
+    background: url("/assets/icons/tractor-icon.svg") center no-repeat;
     margin: -5px auto 0 auto;
+    background-size: contain;
 }
 .cut-icon{
     width: 70px;
@@ -2535,7 +2662,27 @@ border-bottom: 0;
     }
 }
 
-
+.car-wheel-icon{
+    background: url("./assets/icons/car-wheel.svg") center no-repeat;
+    background-size: contain;
+    width: 23px;
+    height: 23px;
+    margin: 5px 12px 10px 12px ;
+}
+.date-icon-grey{
+    background: url("./assets/icons/date-icon-grey.svg") center no-repeat;
+    background-size: contain;
+    width: 25px;
+    height: 25px;
+    margin: 5px 10px 10px 10px ;
+}
+.ruble-icon{
+    background: url("./assets/icons/ruble-icon.svg") center no-repeat;
+    background-size: contain;
+    width: 22px;
+    height: 22px;
+    margin: 5px 12px 10px 12px ;
+}
 .teaher-icon{
     background: url("./assets/icons/teaher-icon.svg") center no-repeat;
     width: 25px;
@@ -3304,6 +3451,7 @@ body.vim-on{
                                                 {font-size: 16px !important;}
     .site-sections a, .site-sections li, .col-news .news-description,
     footer .heading, .news-widgets .widget .heading,.container-wp-page p,
+    .container-wp-page ul, .container-wp-page ol,
     .heading-wp-page .date, .primary-table .table-cont h6,
     
                                                 {font-size: 17px !important;}
@@ -3311,6 +3459,8 @@ body.vim-on{
     .gt-stat .sm-line, .courses .course h5, .col-news-all .news-head-line,
     
     .container.rasp-page .bbtn
+                                                {font-size: 19px !important;}
+    .coruecel-text p
                                                 {font-size: 19px !important;}
     
     #tab-btn span, .line-heading
@@ -3330,6 +3480,8 @@ body.vim-on{
         .container.rasp-page #tab-btn span {
             font-size: 15px !important;
         }
+        .coruecel-text p
+                                                {font-size: 19px !important;}
     }
 }
 
@@ -3346,16 +3498,17 @@ body.vim-on{
                                                 {font-size: 17px !important;}
     .site-sections a,  .site-sections li, .col-news .news-description,
     footer .heading, .s-footer, .news-widgets .widget .heading,
-    .container-wp-page p, .heading-wp-page .date,.primary-table .table-cont h6, 
+    .container-wp-page p,.container-wp-page ul, .container-wp-page ol,
+    .heading-wp-page .date,.primary-table .table-cont h6, 
     .sub-header-menu .container a
     
                                                 {font-size: 19px !important;}
     .gt-stat .sm-line, .courses .course h5, .col-news-all .news-head-line,
-    .container.rasp-page .bbtn, .to-registrate h6
+    .container.rasp-page .bbtn, .to-registrate h6, .coruecel-text p
                                                 {font-size: 20px !important;}
     .gt-stat .sm-line, .courses .course h5, .col-news-all .news-head-line
                                                 {font-size: 21px !important;}
-    #tab-btn span, .line-heading
+    #tab-btn span, .line-heading, 
                                                 {font-size: 23px !important;}
     .heading-wp-page .headline h1
                                                 {font-size: 28px !important;}
@@ -3372,7 +3525,10 @@ body.vim-on{
         .container.rasp-page #tab-btn span {
             font-size: 15px !important;
         }
+        .coruecel-text p
+                                                {font-size: 20px !important;}
     }
+    
 }
 
 
@@ -3506,6 +3662,20 @@ body.vim-on{
 .news-container{
     width: 100%;
 }
+
+
+.more-education{
+    .currnt-name{
+        width: 30%;
+    }
+    overflow: hidden;
+}
+
+.list-style-none{
+    list-style: none;
+}
+
+
 
 @media (max-width: 990px){
        .primary-table .table-cont {

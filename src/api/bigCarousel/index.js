@@ -8,7 +8,7 @@ async function getSlides() {
 	slidesPosts = _.filter(slidesPosts.data, "featured_media");
 	for (let post in slidesPosts) {
 		let image = await axios.get(`${wp_api_endpoint}/wp/v2/media/${slidesPosts[post].featured_media}`, { timeout: 2000 });
-		slides.push(image.data);
+		slides.push({ image: image.data, post: _.pick(slidesPosts[post], ["title", "excerpt"]) });
 	}
 	return slides;
 }

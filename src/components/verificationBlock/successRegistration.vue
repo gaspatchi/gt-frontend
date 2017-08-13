@@ -4,7 +4,7 @@
 			<img class="image-info" src="../../assets/img/green-done.svg" alt="">
 			<h4>Регистрация успешно подтверждена</h4>
 			<h6>Войдите чтобы воспользоваться нашим сервисом</h6>
-			<button class="btn-primory btn-40">войти</button>
+			<button class="btn-primory btn-40 btn-pulse" @click="successClick">{{button}}</button>
 		</div>
 		<div class="bg-white bttn bbtn advantages-header">
 			<div class="container text-center line-heading">Теперь вам доступно:</div>
@@ -32,6 +32,12 @@
 
 <script>
 export default {
-	name: "successRegistration"
+	name: "successRegistration",
+	props: ["button"],
+	methods: {
+		successClick() {
+			this.$emit("successClick");
+		}
+	}
 };
 </script>

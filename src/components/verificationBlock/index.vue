@@ -1,6 +1,6 @@
 <template>
 	<div class="container mt-130 borderg rasp-page bg-white account-settings">
-		<successRegistration v-if="verificationBlockType==='registration' && verificationBlockStatus===true"></successRegistration>
+		<successRegistration v-if="verificationBlockType==='registration' && verificationBlockStatus===true" button="Войти в аккаунт" @successClick="successClick"></successRegistration>
 		<success v-if="verificationBlockType!=='registration' && verificationBlockStatus===true" :title="verificationBlockSuccessTitle" :description="verificationBlockSuccessDescription" button="Войти в аккаунт" @successClick="successClick"></success>
 		<error v-if="verificationBlockStatus===false" :title="verificationBlockErrorTitle" :description="verificationBlockErrorDescription" button="Повторить" @errorClick="errorClick"></error>
 		<spinner v-if="verificationBlockLoading" :height="100" mode="large"></spinner>
