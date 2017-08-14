@@ -1,4 +1,3 @@
-@import "/assets/css/grid.css";
 *{font-family: 'Open Sans', sans-serif !important;}
 
 $searchinblue: #23438e;
@@ -1595,7 +1594,7 @@ input:focus ~ label {
 .tractor-icon{
     width: 70px;
     height: 70px;
-    background: url("/assets/icons/tractor-icon.svg") center no-repeat;
+    background: url("./assets/icons/tractor-icon.svg") center no-repeat;
     margin: -5px auto 0 auto;
     background-size: contain;
 }
@@ -2089,6 +2088,7 @@ footer{
     display: flex;
     justify-content: center;
     >*{
+        cursor: pointer;
         color: $white;
         padding: 2px;
         min-width: 30px;
@@ -3384,7 +3384,7 @@ body.vim-on{
     .courses .course h5, .after-feedback, .site-sections > li
                                                      {color: black !important; text-shadow: none;}
 
-    .dropdown .icon-arrow{background: url("/assets/icons/dropdown-icon-black.svg") center no-repeat;}
+    .dropdown .icon-arrow{background: url("./assets/icons/dropdown-icon-black.svg") center no-repeat;}
     .dropdown.active, .sub-full-menu{background: #d6dae4;}
     
     .s-footer{background: #080808}

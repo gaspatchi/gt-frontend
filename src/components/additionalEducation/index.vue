@@ -8,14 +8,14 @@
 				<div class="row text-center">
 					<div class="col-12 col-sm-4">
 						<a href="#" class="course c-shadow ">
-							<h5>Автошкола</h5>
+							<h5>Курсы вождения</h5>
 							<div class="car-icon"></div>
 						</a>
 					</div>
 					<div class="col-12 col-sm-4 ">
 						<a href="#" class="course sm c-shadow">
-							<h5>Курсы флориста</h5>
-							<div class="flover-icon"></div>
+							<h5>Курсы тракториста</h5>
+							<div class="tractor-icon"></div>
 						</a>
 					</div>
 					<div class="col-12 col-sm-4">
