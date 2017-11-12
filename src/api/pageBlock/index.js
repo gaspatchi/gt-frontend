@@ -3,7 +3,7 @@ import axios from "axios";
 import _ from "lodash";
 
 export async function getPage(page_id) {
-	let post = await axios.get(`${wp_api_endpoint}/wp/v2/pages/${page_id}`, { timeout: 3000 });
+	let post = await axios.get(`${wp_api_endpoint}/wp/v2/pages/${page_id}`, { timeout: 6000 });
 	post = _.pick(post.data, ["id", "date", "title", "content"]);
 	return post;
 }

@@ -43,7 +43,6 @@ export default {
 	},
 	methods: {
 		selectPost(post_id) {
-			window.scrollTo(0, 0);
 			this.$router.push(`/post/${post_id}`);
 			this.$store.dispatch("postBlock/getPost", post_id);
 		}
@@ -82,6 +81,11 @@ export default {
 			if (post_id !== this.postBlockPost.id) {
 				this.$store.commit("mainMenu/hideMenu");
 				this.$store.dispatch("postBlock/getPost", post_id);
+			}
+		},
+		postBlockPost(post) {
+			if (this.postBlockPostEmpty === false) {
+				window.document.title = post.title.rendered;
 			}
 		}
 	}

@@ -6,6 +6,7 @@
 		<rightMenu></rightMenu>
 		<subHeader></subHeader>
 		<bigCarousel></bigCarousel>
+		<subNavigation></subNavigation>
 		<newsBlock></newsBlock>
 		<achievementsBlock></achievementsBlock>
 		<additionalEducation></additionalEducation>
@@ -21,6 +22,7 @@ import mainMenu from "../components/mainMenu/";
 import rightMenu from "../components/rightMenu/";
 import subHeader from "../components/subHeader/";
 import bigCarousel from "../components/bigCarousel/";
+import subNavigation from "../components/subNavigation/";
 import newsBlock from "../components/newsBlock/";
 import achievementsBlock from "../components/achievementsBlock/";
 import additionalEducation from "../components/additionalEducation/";
@@ -35,6 +37,7 @@ export default {
 		rightMenu,
 		subHeader,
 		bigCarousel,
+		subNavigation,
 		newsBlock,
 		achievementsBlock,
 		additionalEducation,

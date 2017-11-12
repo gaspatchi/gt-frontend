@@ -3,8 +3,8 @@
 		<div class="bbtn bg-white">
 			<div class="container">
 				<header id="tab-btn">
-					<span :class="{'active-tab': currentSection==='news'}" @click="changeSection('news',1)">Новости</span>
-					<span :class="{'active-tab': currentSection==='ads'}" @click="changeSection('ads',14)">Объявления</span>
+					<span :class="{'active-tab': currentSection==='news'}" @click="changeSection('news',newsCategory)">Новости</span>
+					<span :class="{'active-tab': currentSection==='ads'}" @click="changeSection('ads',adsCategory)">Объявления</span>
 				</header>
 			</div>
 		</div>
@@ -25,19 +25,17 @@
 									<div class="data">{{news.date | formatNewsDate}}</div>
 									<div class="category" v-if="news.tag">{{news.tag}}</div>
 								</div>
-								<div class="news-description h6">
-									{{news.title.rendered}}
-								</div>
+								<div class="news-description h6" v-html="news.title.rendered"></div>
 							</div>
 						</router-link>
 					</div>
 					<div class="row">
-						<router-link class="col-sm-12 col-md-6 col-lg-3 col-news all-news" to="/news/1/1" v-if="currentSection==='news'">
+						<router-link class="col-sm-12 col-md-6 col-lg-3 col-news all-news" :to="{path: '/news/'+ newsCategory + '/1'}" v-if="currentSection==='news'">
 							<div class="news-description h6 justify-content-end">
 								<div class="all-n-arrow"></div>Все новости
 							</div>
 						</router-link>
-						<router-link class="col-sm-12 col-md-6 col-lg-3 col-news all-news" to="/news/14/1" v-else>
+						<router-link class="col-sm-12 col-md-6 col-lg-3 col-news all-news" :to="{path: '/news/'+ adsCategory + '/1'}" v-else>
 							<div class="news-description h6 justify-content-end">
 								<div class="all-n-arrow"></div>Все объявления
 							</div>
@@ -55,7 +53,7 @@ import moment from "moment";
 import store from "../../store/";
 import spinner from "../spinner/";
 import toast from "../toast/";
-
+import { wp_news_category, wp_ads_category } from "../../api/config.js";
 export default {
 	name: "newsBlock",
 	store,
@@ -64,6 +62,7 @@ export default {
 		toast
 	},
 	created() {
+		this.$store.commit("newsBlock/changeSection", "news");
 		this.$store.dispatch("newsBlock/fetchAds", 1);
 	},
 	methods: {
@@ -84,6 +83,12 @@ export default {
 		},
 		newsBlockError() {
 			return this.$store.state.newsBlock.error;
+		},
+		newsCategory() {
+			return wp_news_category;
+		},
+		adsCategory() {
+			return wp_ads_category;
 		}
 	},
 	filters: {

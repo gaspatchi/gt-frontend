@@ -25,12 +25,12 @@
 			</div>
 			<section id="tab-page">
 				<settingsScreen v-if="userProfileCurrentScreen==='settings' && !userProfileEmpty" :profile="userProfile" @updateProfile="updateProfile"></settingsScreen>
-				<subscriptionsScreen v-if="userProfileCurrentScreen==='subscriptions'" :subscriptions="userSubscriptions" :dispatch="userProfileDispatch" @postDispatch="postDispatch"></subscriptionsScreen>
+				<subscriptionsScreen v-if="userProfileCurrentScreen==='subscriptions'" :userProfileGroups="userProfileGroups" :userProfileTeachers="userProfileTeachers" :dispatch="userProfileDispatch" @postDispatch="postDispatch"></subscriptionsScreen>
 			</section>
 		</div>
 		<toast :state="userProfileToast" :messagetext="userProfileToastMessage" :mode="userProfileToastType"></toast>
 		<toast :state="errors.has('Аватар')" :messagetext="errors.first('Аватар')" mode="warning"></toast>
-	
+
 	</div>
 	<div class="container mt-130 borderg rasp-page bg-white account-settings" v-else>
 		<div class="info-settings">
@@ -114,6 +114,12 @@ export default {
 		},
 		userProfileLoading() {
 			return this.$store.state.userProfile.loading;
+		},
+		userProfileGroups() {
+			return this.$store.state.rightMenu.schedule.groups;
+		},
+		userProfileTeachers() {
+			return this.$store.state.rightMenu.schedule.teachers;
 		},
 		userProfileToast() {
 			return this.$store.state.userProfile.error;

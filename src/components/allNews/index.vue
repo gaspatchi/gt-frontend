@@ -3,8 +3,8 @@
 		<div class="bbtn bg-white">
 			<div class="container">
 				<header id="tab-btn">
-					<span :class="{'active-tab': allNewsCurrentCategory===1}" @click="allNewsChangeCategory(1)">Новости</span>
-					<span :class="{'active-tab': allNewsCurrentCategory===14}" @click="allNewsChangeCategory(14)">Объявления</span>
+					<span :class="{'active-tab': allNewsCurrentCategory===newsCategory}" @click="allNewsChangeCategory(newsCategory)">Новости</span>
+					<span :class="{'active-tab': allNewsCurrentCategory===adsCategory}" @click="allNewsChangeCategory(adsCategory)">Объявления</span>
 				</header>
 			</div>
 		</div>
@@ -14,6 +14,16 @@
 					<section id="tab-page">
 						<div class="active">
 							<spinner v-if="allNewsLoading" height="500" mode="large"></spinner>
+							<div v-if="allNewsLoading === false && allNewsTotalPages === 0" class="gt-center">
+								<div class="animated-gt-logo">
+									<img class="collectors" src="../../assets/img/animated_logo/collectors.svg">
+									<img class="logo-without-collectors" src="../../assets/img/animated_logo/track.svg">
+									<img class="cover-1x1" src="../../assets/img/animated_logo/1x1-cover.svg">
+								</div>
+								<h6>В настоящее время отсутствует актуальная информация в данной категории</h6>
+								<br>
+								<button class="btn-primory btn-40" @click="allNewsChangeCategory(newsCategory)">Перейти к новостям</button>
+							</div>
 							<router-link :to="{path: '/post/'+ post.id}" class="col-news-all" v-for="post in allNewsPosts" :key="post.id">
 								<div class="news-prev" v-if="post.image" :style="{ 'background-image': 'url(' + post.image + ')' }">
 									<img class="news-prew-size" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQcAAAClAQMAAABrxqq1AAAAA1BMVEUmTKgfeyxbAAAAHElEQVQYGe3BAQ0AAADCIPunfg43YAAAAAAAnAsV6gAB/QBKcQAAAABJRU5ErkJggg==">
@@ -50,6 +60,7 @@ import spinner from "../spinner/";
 import toast from "../toast/";
 import paginationBar from "../paginationBar/";
 import categoriesWidget from "../categoriesWidget/";
+import { wp_news_category, wp_ads_category } from "../../api/config.js";
 export default {
 	name: "allNews",
 	store,
@@ -60,7 +71,6 @@ export default {
 		categoriesWidget
 	},
 	created() {
-		window.scrollTo(0, 0);
 		this.$store.commit("allNews/changeCategory", this.allNewsUrlCategory);
 		this.$store.dispatch("allNews/getPosts", this.$route.params.page);
 	},
@@ -71,7 +81,6 @@ export default {
 			this.$store.dispatch("allNews/getPosts", 1);
 		},
 		changePage(page) {
-			window.scrollTo(0, 0);
 			this.$router.push(`/news/${this.allNewsUrlCategory}/${page}`);
 			this.$store.dispatch("allNews/getPosts", page);
 		}
@@ -103,13 +112,12 @@ export default {
 		},
 		allNewsErrorMessage() {
 			return this.$store.state.allNews.message;
-		}
-	},
-	watch: {
-		allNewsTotalPages(pages) {
-			if (pages === 0) {
-				this.allNewsChangeCategory(1);
-			}
+		},
+		newsCategory() {
+			return wp_news_category;
+		},
+		adsCategory() {
+			return wp_ads_category;
 		}
 	},
 	filters: {

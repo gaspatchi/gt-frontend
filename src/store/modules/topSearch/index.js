@@ -6,12 +6,16 @@ const topSearch = {
 		loading: false,
 		error: false,
 		open: false,
+		type: "posts",
 		query: "",
 		results: []
 	},
 	mutations: {
-		toggleSearchMenu(store) {
-			store.open = !store.open;
+		openSearchMenu(store) {
+			store.open = true;
+		},
+		closeSearchMenu(store) {
+			store.open = false;
 		},
 		startFetch(store) {
 			store.error = false;
@@ -21,8 +25,14 @@ const topSearch = {
 			store.loading = false;
 			store.results = results;
 		},
+		changeSearchType(store, type) {
+			store.type = type;
+			store.query = "";
+			store.results = [];
+		},
 		saveQuery(store, query) {
 			store.query = query;
+			store.results = [];			
 		},
 		showError(store) {
 			store.loading = false;
@@ -37,7 +47,7 @@ const topSearch = {
 			try {
 				store.commit("saveQuery", query);
 				store.commit("startFetch");
-				let results = await getResults(query);
+				let results = await getResults(query, store.state.type);
 				store.commit("saveSearchResults", results);
 			} catch (error) {
 				store.commit("showError");

@@ -3,11 +3,11 @@ import _ from "lodash";
 import axios from "axios";
 
 export async function getPosts(category, page) {
-	let posts = await axios.get(`${wp_api_endpoint}/wp/v2/posts`, { timeout: 3000, params: { categories: category, page: page } });
+	let posts = await axios.get(`${wp_api_endpoint}/wp/v2/posts`, { timeout: 6000, params: { categories: category, page: page } });
 
 	let tags = _.map(posts.data, async (post) => {
 		if (post.tags.length === 1) {
-			return { id: post.id, tag: await axios.get(`${wp_api_endpoint}/wp/v2/tags/${post.tags[0]}`, { timeout: 3000 }) };
+			return { id: post.id, tag: await axios.get(`${wp_api_endpoint}/wp/v2/tags/${post.tags[0]}`, { timeout: 6000 }) };
 		} else {
 			return { id: post.id, tag: false };
 		}
@@ -15,7 +15,7 @@ export async function getPosts(category, page) {
 
 	let images = _.map(posts.data, async (post) => {
 		if (post.featured_media !== 0) {
-			return { id: post.id, image: await axios.get(`${wp_api_endpoint}/wp/v2/media/${post.featured_media}`, { timeout: 3000 }) };
+			return { id: post.id, image: await axios.get(`${wp_api_endpoint}/wp/v2/media/${post.featured_media}`, { timeout: 6000 }) };
 		} else {
 			return { id: post.id, image: false };
 		}
@@ -50,7 +50,7 @@ export async function getPosts(category, page) {
 }
 
 export async function getCategories() {
-	let categories = await axios.get(`${wp_api_endpoint}/wp/v2/categories`, { timeout: 3000, params: { exclude: wp_slider_category } });
+	let categories = await axios.get(`${wp_api_endpoint}/wp/v2/categories`, { timeout: 6000, params: { exclude: wp_slider_category } });
 	categories = _.map(categories.data, (category) => _.pick(category, ["id", "name"]));
 	return categories;
 }

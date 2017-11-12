@@ -29,7 +29,7 @@ export default {
 			return this.$props.page === 1 ? false : true;
 		},
 		next() {
-			return this.$props.page === this.$props.pages ? false : true;
+			return this.$props.page === this.$props.pages || this.$props.pages === 0 ? false : true;
 		},
 		prevPages() {
 			return _.reverse(_.sortedUniq(_.filter(_.range(this.$props.page - 1, this.$props.page - 4), (page) => page <= 0 ? false : true)));

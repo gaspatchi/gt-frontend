@@ -1,5 +1,6 @@
 import Vue from "vue";
 import Router from "vue-router";
+import Store from "../store/";
 import Main from "../containers/Main";
 import AllNews from "../containers/AllNews";
 import Post from "../containers/Post";
@@ -99,13 +100,18 @@ let router = new Router({
 			path: "*",
 			component: NotFound,
 			meta: {
-				title: "404"
+				title: "Ничего не найдено"
 			}
 		}
-	]
+	],
+	scrollBehavior() {
+		return { x: 0, y: 0 };
+	}
 });
 
-router.beforeEach((to, from, next) => {
+router.beforeResolve((to, from, next) => {
+	Store.commit("topSearch/closeSearchMenu");
+	Store.commit("mainMenu/hideMenu");
 	document.title = to.meta.title;
 	next();
 });

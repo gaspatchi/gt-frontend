@@ -20,7 +20,7 @@
 			<spinner v-if="rightMenuLoading" :height="120" :mode="'s-result small'"></spinner>
 		</div>
 		<div class="rasp-cont active" v-if="rightMenuProfileActive">
-			<profileScreen :active="rightMenuProfileActive" :profile="rightMenuProfile" :subscriptions="rightMenuSubscriptions" :groupSchedule="rightMenuCurrentGroup" :teacherSchedule="rightMenuCurrentTeacher" @fetchGroup="fetchGroup" @logoutUser="logoutUser"></profileScreen>
+			<profileScreen :active="rightMenuProfileActive" :profile="rightMenuProfile" :subscriptions="rightMenuSubscriptions" :groupSchedule="rightMenuCurrentGroup" :teacherSchedule="rightMenuCurrentTeacher" :more="rightMenuIfMore" @fetchGroup="fetchGroup" @logoutUser="logoutUser" @openSchedule="openSchedule"></profileScreen>
 		</div>
 		<toast :state="rightMenuError" :messagetext="rightMenuErrorMessage" :mode="rightMenuErrorType"></toast>
 	</div>
@@ -69,6 +69,10 @@ export default {
 		},
 		fetchGroup(group_id) {
 			this.$store.dispatch("rightMenu/getGroupSchedule", group_id);
+		},
+		openSchedule() {
+			this.$store.commit("rightMenu/closeMenu");
+			this.$router.push("/schedule");
 		}
 	},
 	computed: {
@@ -125,6 +129,9 @@ export default {
 		},
 		rightMenuCurrentTeacher() {
 			return this.$store.state.rightMenu.schedule.teacher;
+		},
+		rightMenuIfMore() {
+			return this.$store.state.rightMenu.schedule.groups.length > 3 ? true : false;
 		}
 	},
 	created() {

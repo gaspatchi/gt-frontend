@@ -16,6 +16,10 @@ const cabinetSchedule = {
 			store.error = false;
 			store.message = "";
 		},
+		clearSchedule(store) {
+			store.info = {};
+			store.schedule = [];
+		},
 		saveCabinet(store, payload) {
 			store.loading = false;
 			store.info = payload.info;
@@ -33,9 +37,14 @@ const cabinetSchedule = {
 	actions: {
 		async getCabinetInfo(store, cabinet_id) {
 			try {
+				store.commit("startFetch");
+				store.commit("clearSchedule");
 				let info = await getCabinetInfo(cabinet_id);
 				let schedule = _.sortBy(info.lessons, "index");
-				store.commit("saveCabinet", { info: info.cabinet, schedule });
+				store.commit("saveCabinet", {
+					info: info.cabinet,
+					schedule
+				});
 			} catch (error) {
 				if (!error.response || error == "Error: Request failed with status code 502") {
 					store.commit("showError", "Сервис информации недоступен");

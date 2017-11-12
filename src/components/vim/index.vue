@@ -4,15 +4,15 @@
 			<div class="choose-fz">
 				<label class="hidden-sm-down">Размер шрифта: </label>
 				<div class="size-group">
-					<input type="radio" id="text-mode1" name="radio" checked="checked" @click="changeVimMode('default')"/>
+					<input type="radio" id="text-mode1" name="radio" :checked="modeVim === 'default'" @click="changeVimMode('default')"/>
 					<label for="text-mode1">
 						<span>А</span>
 					</label>
-					<input type="radio" id="text-mode2" name="radio"  @click="changeVimMode('medium')"/>
+					<input type="radio" id="text-mode2" name="radio" :checked="modeVim === 'medium'"  @click="changeVimMode('medium')"/>
 					<label for="text-mode2">
 						<span>А</span>
 					</label>
-					<input type="radio" id="text-mode3" name="radio"  @click="changeVimMode('large')"/>
+					<input type="radio" id="text-mode3" name="radio" :checked="modeVim === 'large'" @click="changeVimMode('large')"/>
 					<label for="text-mode3">
 						<span>А</span>
 					</label>

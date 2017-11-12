@@ -3,11 +3,11 @@ import axios from "axios";
 import _ from "lodash";
 
 async function getResults(category) {
-	let posts = await axios.get(`${wp_api_endpoint}/wp/v2/posts`, { timeout: 3000, params: { categories: category, per_page: 8 } });
+	let posts = await axios.get(`${wp_api_endpoint}/wp/v2/posts`, { timeout: 6000, params: { categories: category, per_page: 8 } });
 
 	let tags = _.map(posts.data, async (post) => {
 		if (post.tags.length === 1) {
-			return { id: post.id, tag: await axios.get(`${wp_api_endpoint}/wp/v2/tags/${post.tags[0]}`, { timeout: 3000 }) };
+			return { id: post.id, tag: await axios.get(`${wp_api_endpoint}/wp/v2/tags/${post.tags[0]}`, { timeout: 6000 }) };
 		} else {
 			return { id: post.id, tag: false };
 		}
@@ -15,7 +15,7 @@ async function getResults(category) {
 
 	let images = _.map(posts.data, async (post) => {
 		if (post.featured_media !== 0) {
-			return { id: post.id, image: await axios.get(`${wp_api_endpoint}/wp/v2/media/${post.featured_media}`, { timeout: 3000 }) };
+			return { id: post.id, image: await axios.get(`${wp_api_endpoint}/wp/v2/media/${post.featured_media}`, { timeout: 6000 }) };
 		} else {
 			return { id: post.id, image: false };
 		}
