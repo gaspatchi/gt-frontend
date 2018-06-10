@@ -78,7 +78,7 @@ const groupSchedule = {
 			try {
 				store.commit("startFetch");
 				let dates = await getScheduleDates(store.state.group);
-				dates = _.reverse(_.sortBy(dates, "date"));
+				dates = _.slice(_.reverse(_.sortBy(dates, "date")), 0, 7);
 				store.commit("saveDates", dates);
 				store.dispatch("getGroupSchedule", dates[0].date);
 			} catch (error) {
