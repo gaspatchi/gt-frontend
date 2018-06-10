@@ -18,7 +18,19 @@
 					<div class="sub-full-menu">
 						<ul class="site-sections lb ">
 							<li>
-								<a href="#">Абитуриентам</a>
+								<router-link :to="{path: '/page/'+ one}">Абитуриентам</router-link>
+							</li>
+							<li>
+								<router-link :to="{path: '/page/'+ two}">Студентам</router-link>
+							</li>
+							<li>
+								<router-link :to="{path: '/page/'+ three}">Документы</router-link>
+							</li>
+							<li>
+								<router-link to="/feedback">Обратная связь</router-link>
+							</li>
+							<li>
+								<router-link to="/page/8549">Расписание</router-link>
 							</li>
 						</ul>
 					</div>
@@ -47,6 +59,7 @@ import store from "../../store/";
 import mainMenuItems from "../mainMenuItems/";
 import spinner from "../spinner/";
 import toast from "../toast/";
+import { th_one, th_two, th_three } from "../../api/config.js";
 export default {
 	name: "mainMenu",
 	store,
@@ -84,8 +97,16 @@ export default {
 		},
 		mainMenuRightItems() {
 			return this.$store.state.mainMenu.links.right;
+		},
+		one() {
+			return th_one;
+		},
+		two() {
+			return th_two;
+		},
+		three() {
+			return th_three;
 		}
-
 	}
 };
 </script>

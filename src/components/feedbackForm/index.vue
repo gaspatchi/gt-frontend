@@ -6,7 +6,7 @@
 					<div class="headline">
 						<h1>Форма обратной связи</h1>
 					</div>
-					<p>Добавить текст</p>
+					<br>
 					<div class="feedback-cont">
 						<div class="feedback-info">
 							<input type="text" v-validate="'required|min:2|max:15'" data-vv-delay="1000" name="Имя" placeholder="Имя" v-model="firstname" :class="{incorrect:errors.has('Имя')}">
@@ -26,7 +26,7 @@
 								<span>{{ errors.first('Email') }}</span>
 							</div>
 						</div>
-						<textarea v-validate="'required|min:10'" name="Текст" placeholder="Ваше сообщение..." v-model="text" :class="{incorrect:errors.has('Текст')}"></textarea>
+						<textarea v-validate="'required|min:10'" name="Обращение" placeholder="Ваше обращение..." v-model="text" :class="{incorrect:errors.has('Текст')}"></textarea>
 					</div>
 					<div class="after-feedback">
 						<div class="feedback-stat">

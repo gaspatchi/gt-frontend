@@ -1,7 +1,8 @@
 <template>
 	<div class="favorite">
 		<div class="d-flex favorBtn" @click="toggleSubscription">
-			<div class="star-icon checked"></div>
+			<div class="star-icon checked" v-if="emailExists || viewExists"></div>
+			<div class="star-icon unchecked" v-else></div>
 			<div class="hidden-sm-down" v-if="emailExists">В подписках</div>
 			<div class="hidden-sm-down" v-else-if="viewExists">В избранном</div>
 			<div class="hidden-sm-down" v-else>Подписаться</div>
@@ -11,6 +12,7 @@
 			<div class="lists">
 				<div class="list-item" v-if="!emailExists" @click="addSubscription('send','email')">
 					Email
+					<div class="done-icon opct-0"></div>
 				</div>
 				<div class="list-item" v-else @click="deleteSubscription('send','email')">
 					Email
@@ -18,6 +20,7 @@
 				</div>
 				<div class="list-item bttn" v-if="emailExists === false && viewExists === false" @click="addSubscription('view','')">
 					Избранное
+					<div class="done-icon opct-0"></div>
 				</div>
 				<div class="list-item bttn" v-else-if="emailExists === false && viewExists === true" @click="deleteSubscription('view','')">
 					Избранное

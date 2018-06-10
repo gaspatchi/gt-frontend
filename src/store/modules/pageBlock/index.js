@@ -13,6 +13,7 @@ const pageBlock = {
 			store.loading = true;
 			store.error = false;
 			store.message = "";
+			store.page = {};
 		},
 		savePage(store, page) {
 			store.loading = false;

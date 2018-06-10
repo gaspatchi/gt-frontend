@@ -18,9 +18,9 @@ const rightMenu = {
 			profile: {}
 		},
 		schedule: {
-			groups: {},
+			groups: [],
 			group: {},
-			teachers: {},
+			teachers: [],
 			teacher: {}
 		}
 	},
@@ -30,6 +30,9 @@ const rightMenu = {
 		},
 		openMenu(store) {
 			store.open = true;
+		},
+		closeMenu(store) {
+			store.open = false;
 		},
 		changeScreen(store, screen) {
 			store.screen = screen;
@@ -179,8 +182,8 @@ const rightMenu = {
 			try {
 				store.commit("startFetch");
 				let result = await getUserSubscriptions(token);
-				let groups = _.slice(_.concat(result.data.send.email.groups, result.data.view.groups), 0, 3);
-				let teachers = _.slice(_.concat(result.data.send.email.teachers, result.data.view.teachers), 0, 1);
+				let groups = _.slice(_.concat(result.data.send.email.groups, result.data.view.groups), 0, 10);
+				let teachers = _.slice(_.concat(result.data.send.email.teachers, result.data.view.teachers), 0, 10);
 
 				store.commit("saveUserSubscriptions", { groups, teachers });
 				if (_.size(groups) > 0) {
@@ -277,7 +280,7 @@ const rightMenu = {
 			}
 		},
 		UserSubscriptions(store) {
-			return { groups: store.schedule.groups, teachers: store.schedule.teachers };
+			return { groups: _.slice(store.schedule.groups, 0, 3), teachers: _.slice(store.schedule.teachers, 0, 1) };
 		}
 	}
 };

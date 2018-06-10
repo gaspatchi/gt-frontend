@@ -5,22 +5,26 @@ const bigCarousel = {
 	state: {
 		loading: false,
 		error: false,
+		sliderError: false,
 		slides: []
 	},
 	mutations: {
 		startFetch(store) {
 			store.error = false;
+			store.sliderError = false;
 			store.loading = true;
 			store.slides = [];
 		},
 		saveSlides(store, slides) {
 			store.error = false;
+			store.sliderError = false;
 			store.loading = false;
 			store.slides = slides;
 		},
 		showError(store) {
 			store.loading = false;
 			store.error = true;
+			store.sliderError = true;		
 		},
 		hideError(store) {
 			store.error = false;

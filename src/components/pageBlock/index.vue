@@ -58,6 +58,11 @@ export default {
 				this.$store.commit("mainMenu/hideMenu");
 				this.$store.dispatch("pageBlock/getPage", page_id);
 			}
+		},
+		pageBlockPage(page) {
+			if (this.pageBlockPageEmpty === false) {
+				window.document.title = page.title.rendered;
+			}
 		}
 	}
 };

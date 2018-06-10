@@ -1,4 +1,10 @@
-import { getTeacherInfo, getScheduleDates, getTeacherSchedule, addUserSubscription, deleteUserSubscription } from "../../../api/teacherSchedule";
+import {
+	getTeacherInfo,
+	getScheduleDates,
+	getTeacherSchedule,
+	addUserSubscription,
+	deleteUserSubscription
+} from "../../../api/teacherSchedule";
 import _ from "lodash";
 
 const teacherSchedule = {
@@ -19,6 +25,13 @@ const teacherSchedule = {
 			store.loading = true;
 			store.error = false;
 			store.message = "";
+		},
+		clearSchedule(store) {
+			store.teacher = null;
+			store.date = null;
+			store.info = {};
+			store.dates = [];
+			store.schedule = [];
 		},
 		changeScreen(store, screen) {
 			store.screen = screen;
@@ -51,6 +64,7 @@ const teacherSchedule = {
 		async getTeacherInfo(store, teacher_id) {
 			try {
 				store.commit("startFetch");
+				store.commit("clearSchedule");				
 				let info = await getTeacherInfo(teacher_id);
 				store.commit("saveTeacher", Number(teacher_id));
 				store.commit("saveInfo", info);
@@ -87,7 +101,10 @@ const teacherSchedule = {
 				store.commit("startFetch");
 				let schedule = await getTeacherSchedule(store.state.teacher, date);
 				schedule = _.sortBy(schedule, "index");
-				store.commit("saveSchedule", { date, schedule });
+				store.commit("saveSchedule", {
+					date,
+					schedule
+				});
 			} catch (error) {
 				if (!error.response || error == "Error: Request failed with status code 502") {
 					store.commit("showError", "Сервис расписания недоступен");
@@ -101,8 +118,12 @@ const teacherSchedule = {
 		async addUserSubscription(store, payload) {
 			try {
 				await addUserSubscription(store.rootState.rightMenu.authorization.token, payload);
-				store.dispatch("rightMenu/getUserProfile", store.rootState.rightMenu.authorization.token, { root: true });
-				store.dispatch("rightMenu/getUserSubscriptions", store.rootState.rightMenu.authorization.token, { root: true });
+				store.dispatch("rightMenu/getUserProfile", store.rootState.rightMenu.authorization.token, {
+					root: true
+				});
+				store.dispatch("rightMenu/getUserSubscriptions", store.rootState.rightMenu.authorization.token, {
+					root: true
+				});
 			} catch (error) {
 				if (!error.response || error == "Error: Request failed with status code 502") {
 					store.commit("showError", "Сервис подписок недоступен");
@@ -116,8 +137,12 @@ const teacherSchedule = {
 		async deleteUserSubscription(store, payload) {
 			try {
 				await deleteUserSubscription(store.rootState.rightMenu.authorization.token, payload);
-				store.dispatch("rightMenu/getUserProfile", store.rootState.rightMenu.authorization.token, { root: true });
-				store.dispatch("rightMenu/getUserSubscriptions", store.rootState.rightMenu.authorization.token, { root: true });
+				store.dispatch("rightMenu/getUserProfile", store.rootState.rightMenu.authorization.token, {
+					root: true
+				});
+				store.dispatch("rightMenu/getUserSubscriptions", store.rootState.rightMenu.authorization.token, {
+					root: true
+				});
 			} catch (error) {
 				if (!error.response || error == "Error: Request failed with status code 502") {
 					store.commit("showError", "Сервис подписок недоступен");

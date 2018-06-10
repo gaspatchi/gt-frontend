@@ -36,7 +36,7 @@
 <script>
 export default {
 	name: "subscriptionsScreen",
-	props: ["subscriptions", "dispatch"],
+	props: ["userProfileGroups", "userProfileTeachers", "dispatch"],
 	methods: {
 		postDispatch(email) {
 			this.$emit("postDispatch", { email, sms: false });
@@ -44,16 +44,16 @@ export default {
 	},
 	computed: {
 		groups() {
-			return this.$props.subscriptions.groups;
+			return this.$props.userProfileGroups;
 		},
 		teachers() {
-			return this.$props.subscriptions.teachers;
+			return this.$props.userProfileTeachers;
 		},
 		groupsExists() {
-			return this.$props.subscriptions.groups.length > 0 ? true : false;
+			return this.$props.userProfileGroups.length > 0 ? true : false;
 		},
 		teachersExists() {
-			return this.$props.subscriptions.teachers.length > 0 ? true : false;
+			return this.$props.userProfileTeachers.length > 0 ? true : false;
 		},
 		emailDispatch() {
 			return this.$props.dispatch.email;

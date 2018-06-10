@@ -7,19 +7,19 @@
 			<div class="container">
 				<div class="row text-center">
 					<div class="col-12 col-sm-4">
-						<div class="sm-line">Обучаем</div>
-						<div class="b-line">27</div>
-						<div class="sm-line">Различным специальностям</div>
+						<div class="sm-line">Обучение по</div>
+						<div class="b-line">24</div>
+						<div class="sm-line">специальностям и профессиям</div>
 					</div>
 					<div class="col-12 col-sm-4">
-						<div class="sm-line">Входим в</div>
-						<div class="b-line">Топ 100</div>
-						<div class="sm-line">Лучших техникумов России</div>
+						<div class="sm-line">Лауреат трёх золотых медалей</div>
+						<div class="b-line">100</div>
+						<div class="sm-line">лучших ссузов России</div>
 					</div>
 					<div class="col-12 col-sm-4">
-						<div class="sm-line">Удостоены</div>
-						<div class="b-line">78</div>
-						<div class="sm-line">Наградам в различных областях</div>
+						<div class="sm-line">Активный участник</div>
+						<div class="b-line">7</div>
+						<div class="sm-line">чемпионатов WorldSkills Russia</div>
 					</div>
 	
 				</div>

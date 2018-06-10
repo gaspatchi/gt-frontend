@@ -1,4 +1,10 @@
-import { getGroupInfo, getScheduleDates, getGroupSchedule, addUserSubscription, deleteUserSubscription } from "../../../api/groupSchedule";
+import {
+	getGroupInfo,
+	getScheduleDates,
+	getGroupSchedule,
+	addUserSubscription,
+	deleteUserSubscription
+} from "../../../api/groupSchedule";
 import _ from "lodash";
 
 const groupSchedule = {
@@ -18,6 +24,13 @@ const groupSchedule = {
 			store.loading = true;
 			store.error = false;
 			store.message = "";
+		},
+		clearSchedule(store) {
+			store.group = null;
+			store.date = null;
+			store.info = {};
+			store.dates = [];
+			store.schedule = [];
 		},
 		saveInfo(store, info) {
 			store.info = info;
@@ -46,6 +59,7 @@ const groupSchedule = {
 		async getGroupInfo(store, group_id) {
 			try {
 				store.commit("startFetch");
+				store.commit("clearSchedule");
 				let info = await getGroupInfo(group_id);
 				store.commit("saveGroup", Number(group_id));
 				store.commit("saveInfo", info);
@@ -82,7 +96,10 @@ const groupSchedule = {
 				store.commit("startFetch");
 				let schedule = await getGroupSchedule(store.state.group, date);
 				schedule = _.sortBy(schedule, "index");
-				store.commit("saveSchedule", { date, schedule });
+				store.commit("saveSchedule", {
+					date,
+					schedule
+				});
 			} catch (error) {
 				if (!error.response || error == "Error: Request failed with status code 502") {
 					store.commit("showError", "Сервис расписания недоступен");
@@ -96,8 +113,12 @@ const groupSchedule = {
 		async addUserSubscription(store, payload) {
 			try {
 				await addUserSubscription(store.rootState.rightMenu.authorization.token, payload);
-				store.dispatch("rightMenu/getUserProfile", store.rootState.rightMenu.authorization.token, { root: true });
-				store.dispatch("rightMenu/getUserSubscriptions", store.rootState.rightMenu.authorization.token, { root: true });
+				store.dispatch("rightMenu/getUserProfile", store.rootState.rightMenu.authorization.token, {
+					root: true
+				});
+				store.dispatch("rightMenu/getUserSubscriptions", store.rootState.rightMenu.authorization.token, {
+					root: true
+				});
 			} catch (error) {
 				if (!error.response || error == "Error: Request failed with status code 502") {
 					store.commit("showError", "Сервис подписок недоступен");
@@ -111,8 +132,12 @@ const groupSchedule = {
 		async deleteUserSubscription(store, payload) {
 			try {
 				await deleteUserSubscription(store.rootState.rightMenu.authorization.token, payload);
-				store.dispatch("rightMenu/getUserProfile", store.rootState.rightMenu.authorization.token, { root: true });
-				store.dispatch("rightMenu/getUserSubscriptions", store.rootState.rightMenu.authorization.token, { root: true });
+				store.dispatch("rightMenu/getUserProfile", store.rootState.rightMenu.authorization.token, {
+					root: true
+				});
+				store.dispatch("rightMenu/getUserSubscriptions", store.rootState.rightMenu.authorization.token, {
+					root: true
+				});
 			} catch (error) {
 				if (!error.response || error == "Error: Request failed with status code 502") {
 					store.commit("showError", "Сервис подписок недоступен");

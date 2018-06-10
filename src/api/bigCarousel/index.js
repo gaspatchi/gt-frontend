@@ -4,11 +4,11 @@ import _ from "lodash";
 
 async function getSlides() {
 	let slides = [];
-	let slidesPosts = await axios.get(`${wp_api_endpoint}/wp/v2/posts`, { timeout: 2000, params: { categories: wp_slider_category, per_page: 10 } });
+	let slidesPosts = await axios.get(`${wp_api_endpoint}/wp/v2/posts`, { timeout: 6000, params: { categories: wp_slider_category, per_page: 10 } });
 	slidesPosts = _.filter(slidesPosts.data, "featured_media");
 	for (let post in slidesPosts) {
-		let image = await axios.get(`${wp_api_endpoint}/wp/v2/media/${slidesPosts[post].featured_media}`, { timeout: 2000 });
-		slides.push({ image: image.data, post: _.pick(slidesPosts[post], ["title", "excerpt"]) });
+		let image = await axios.get(`${wp_api_endpoint}/wp/v2/media/${slidesPosts[post].featured_media}`, { timeout: 6000 });
+		slides.push({ image: image.data, post: _.pick(slidesPosts[post], ["title", "content"]) });
 	}
 	return slides;
 }

@@ -30,7 +30,7 @@
 						<br>{{teacherScheduleInfo.teacher.email}}
 					</div>
 				</div>
-				<div class="about-line" v-if="teacherScheduleInfo.teacher.email">
+				<div class="about-line" v-if="teacherScheduleInfo.teacher.post">
 					<div class="specialty-icon"></div>
 					<div class="name-of-line">
 						<span>Должность:</span>
@@ -43,7 +43,8 @@
 			<div class="bbtn bg-white">
 				<header id="tab-btn">
 					<span :class="{'active-tab':teacherScheduleScreen==='schedule'}" @click="changeScreen('schedule')">Занятия</span>
-					<span :class="{'active-tab':teacherScheduleScreen==='activity'}" @click="changeScreen('activity')">Деятельность</span>
+					<span :class="{'active-tab':teacherScheduleScreen==='activity'}" class="hidden-md-up" @click="changeScreen('activity')">Деят.</span>
+					<span :class="{'active-tab':teacherScheduleScreen==='activity'}" class="hidden-sm-down" @click="changeScreen('activity')">Деятельность</span>
 				</header>
 				<datePicker v-if="teacherScheduleScreen==='schedule'" :current="teacherScheduleDate" :dates="teacherScheduleDates" @selectDate="getTeacherSchedule"></datePicker>
 			</div>

@@ -17,6 +17,9 @@
 		<div class="validation-massage shake" v-if="errors.has('Пароль')">
 			<span>{{ errors.first('Пароль') }}</span>
 		</div>
+		<div class="terms">Нажимая на кнопку «Продолжить», вы соглашаетесь с
+			<router-link :to="'/page/'+privacy">Политикой конфиденциальности</router-link>
+		</div>
 		<div class="d-flex">
 			<button class="t-grey btn-40" @click="changeScreen">Назад</button>
 			<button class="btn-primory btn-40" @click="registerUser">Продолжить</button>
@@ -26,6 +29,7 @@
 
 <script>
 import punycode from "punycode";
+import { privacy_id } from "@/api/config";
 export default {
 	name: "registrationScreen",
 	props: ["active"],
@@ -41,11 +45,21 @@ export default {
 		async registerUser() {
 			let correct = await this.$validator.validateAll();
 			if (correct) {
-				this.$emit("registerUser", { firstname: this.firstname, lastname: this.lastname, email: punycode.toASCII(this.email), password: this.password });
+				this.$emit("registerUser", {
+					firstname: this.firstname,
+					lastname: this.lastname,
+					email: punycode.toASCII(this.email),
+					password: this.password
+				});
 			}
 		},
 		changeScreen() {
 			this.$emit("changeScreen", "login");
+		}
+	},
+	computed: {
+		privacy() {
+			return privacy_id;
 		}
 	}
 };
