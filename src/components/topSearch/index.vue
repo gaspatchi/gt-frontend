@@ -18,9 +18,9 @@
 					</router-link>
 				</div>
 				<div v-else>
-					<a class="s-result" v-for="result in topSearchResults" :key="result.id" :href="result.source_url" :title="result.title.rendered" target="_blank">
+					<router-link class="s-result" :to="{path: '/page/'+ result.id}" v-for="result in topSearchResults" :key="result.id">
 						<h1 v-html="result.title.rendered"></h1>
-					</a>
+					</router-link>
 				</div>
 			</div>
 		</div>
@@ -50,7 +50,9 @@ export default {
 			this.$nextTick(() => this.$refs.searchInput.blur());
 		},
 		toggleSearchMenu() {
-			this.$store.state.topSearch.open === false ? this.openSearchMenu() : this.closeSearchMenu();
+			this.$store.state.topSearch.open === false
+				? this.openSearchMenu()
+				: this.closeSearchMenu();
 		},
 		changeSearchType(type) {
 			this.$store.commit("topSearch/changeSearchType", type);
@@ -61,7 +63,9 @@ export default {
 			return this.$store.state.topSearch.type;
 		},
 		topSearchPlaceholder() {
-			return this.$store.state.topSearch.type === "posts" ? "Поиск по записям" : "Поиск по документам";
+			return this.$store.state.topSearch.type === "posts"
+				? "Поиск по записям"
+				: "Поиск по документам";
 		},
 		searchItems: {
 			get() {

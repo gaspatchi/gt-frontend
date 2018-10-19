@@ -11,10 +11,25 @@
 		<section id="tab-page">
 			<div class="active">
 				<section class="container max-width-90">
-					<spinner v-if="newsBlockLoading" :height="200" :mode="'large'"></spinner>
 					<div class="row news-row">
+						<div class="col-sm-12 col-md-6 col-lg-3 col-news content-placeholder" v-for="cap in 8" :key="cap" v-if="newsBlockLoading">
+							<div class="news-prev">
+								<img class="news-prew-size" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQcAAAClAQMAAABrxqq1AAAAA1BMVEUmTKgfeyxbAAAAHElEQVQYGe3BAQ0AAADCIPunfg43YAAAAAAAnAsV6gAB/QBKcQAAAABJRU5ErkJggg==">
+							</div>
+							<div class="news-info">
+								<div class="content-placeholder">
+									<div class="container-loading h-line-5">
+										<div class="line width-40"></div>
+									</div>
+									<div class="container-loading">
+										<div class="line"></div>
+										<div class="line"></div>
+									</div>
+								</div>
+							</div>
+						</div>
 						<router-link :to="{path: '/post/'+ news.id}" class="col-sm-12 col-md-6 col-lg-3 col-news" v-for="news in newsBlock" :key="news.id">
-							<div v-if="news.hasImage" class="news-prev" :style="{ 'background-image': 'url(' + news.image + ')' }">
+							<div v-if="news.better_featured_image" class="news-prev" :style="{ 'background-image': 'url(' +  news.better_featured_image.media_details.sizes['post-thumbnail'].source_url + ')' }">
 								<img class="news-prew-size" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQcAAAClAQMAAABrxqq1AAAAA1BMVEUmTKgfeyxbAAAAHElEQVQYGe3BAQ0AAADCIPunfg43YAAAAAAAnAsV6gAB/QBKcQAAAABJRU5ErkJggg==">
 							</div>
 							<div v-else class="news-prev">
@@ -51,14 +66,12 @@
 <script>
 import moment from "moment";
 import store from "../../store/";
-import spinner from "../spinner/";
 import toast from "../toast/";
 import { wp_news_category, wp_ads_category } from "../../api/config.js";
 export default {
 	name: "newsBlock",
 	store,
 	components: {
-		spinner,
 		toast
 	},
 	created() {

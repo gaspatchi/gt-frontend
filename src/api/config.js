@@ -13,6 +13,7 @@ export const wp_menu_id = 4;
 export const th_one = 7873;
 export const th_two = 241;
 export const th_three = 21;
+export const th_four = 8549;
 
 export const sn_one = 8493;
 export const sn_two = 48;

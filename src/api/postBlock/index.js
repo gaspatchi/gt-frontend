@@ -10,6 +10,6 @@ export async function getPost(post_id) {
 
 export async function getlastPosts(category) {
 	let posts = await axios.get(`${wp_api_endpoint}/wp/v2/posts`, { timeout: 6000, params: { categories: category, per_page: 4 } });
-	posts = _.map(posts.data, (post) => _.pick(post, ["id", "title", "excerpt"]));
+	posts = _.map(posts.data, (post) => _.pick(post, ["id", "title", "excerpt", "better_featured_image"]));
 	return posts;
 }

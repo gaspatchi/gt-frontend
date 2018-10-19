@@ -1,16 +1,34 @@
 <template>
 	<div class="carousel">
-		<spinner v-if="bigCarouselLoading" :height="200" :mode="'large'"></spinner>
-		<img v-if="bigCarouselSliderError" src="../../assets/img/flat_bldg.png" style="width: 100%; height: auto;"></img>
+		<div class="swiper-slide" v-if="bigCarouselLoading">
+			<div class="coruecel-text content-placeholder">
+				<div class="container">
+					<div class="heading">
+						<div class="container-loading h-line-1">
+							<div class="line width-40"></div>
+						</div>
+					</div>
+					<div class="content">
+						<div class="container-loading p-lines-18">
+							<div class="line"></div>
+							<div class="line"></div>
+							<div class="line"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAADAQMAAACUBtwLAAAAA1BMVEVHcEyC+tLSAAAAAXRSTlMAQObYZgAAAApJREFUCB1jAAMAAAYAAcXjo3IAAAAASUVORK5CYII=" style="width: 100%; height: auto;">
+		</div>
+		<img v-if="bigCarouselSliderError" src="../../assets/img/flat_bldg.png" style="width: 100%; height: auto;">
 		<swiper :options="swiperOption" v-if="!bigCarouselError">
-			<swiper-slide v-for="slide in slidesImages" :key="slide.image.id" :style="{ 'background-image': 'url(' + slide.image.source_url + ')' }" style="background-repeat: no-repeat; background-position: center center; background-size: cover; width: 100%;">
+			<swiper-slide v-for="slide in slidesImages" :key="slide.id" :style="{ 'background-image': 'url(' + slide.better_featured_image.source_url + ')' }" style="background-repeat: no-repeat; background-position: center center; background-size: cover; width: 100%;">
 				<div class="coruecel-text">
 					<div class="container">
-						<div class="heading" v-if="slide.post.title.rendered">
-							<h1 v-html="slide.post.title.rendered"></h1>
+						<div class="heading" v-if="slide.title.rendered">
+							<h1 v-html="slide.title.rendered"></h1>
 						</div>
-						<div class="content" v-if="slide.post.content.rendered">
-							<contentText :text="slide.post.content.rendered"></contentText>
+						<div class="content" v-if="slide.content.rendered">
+							<contentText :text="slide.content.rendered"></contentText>
 						</div>
 					</div>
 				</div>
@@ -23,7 +41,6 @@
 <script>
 import store from "../../store/";
 import { swiper, swiperSlide } from "vue-awesome-swiper";
-import spinner from "../spinner/";
 import contentText from "./contentText";
 export default {
 	name: "bigCarousel",
@@ -31,7 +48,6 @@ export default {
 	components: {
 		swiper,
 		swiperSlide,
-		spinner,
 		contentText
 	},
 	data() {

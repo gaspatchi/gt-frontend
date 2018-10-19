@@ -8,12 +8,13 @@
 							<div class="logo t-shadow">
 								<div class="name-gt">ГТМАУ</div>
 							</div>
-							<p>
+							<div>
 								<a href="http://gaspatchi.ru" class="gaspatchi-logo">
 									<span class="yellow-gradient"></span>
 									<img src="~@/assets/icons/created.svg">
 								</a>
-							</p>
+								<div>Разработка 2017</div>
+							</div>
 						</div>
 					</div>
 					<div class="col-12 col-sm-6  col-md-4 col-lg-6">

@@ -7,7 +7,7 @@
 				<router-link :to="{path: '/page/'+ two}">Студентам</router-link>
 				<router-link :to="{path: '/page/'+ three}">Документы</router-link>
 				<router-link to="/feedback">Обратная связь</router-link>
-				<router-link to="/page/9177">Региональный этап Всероссийской олимпиалы</router-link>
+				<router-link :to="{path: '/page/'+ four}">Расписание занятий</router-link>
 				<button id="visually-impaired-mode-on" @click="toggleVim" v-if="!vimOpen">
 					<div class="eye-img"></div>Версия для слабовидящих
 				</button>
@@ -18,7 +18,7 @@
 
 <script>
 import store from "../../store/";
-import { th_one, th_two, th_three } from "../../api/config.js";
+import { th_one, th_two, th_three, th_four } from "../../api/config.js";
 export default {
 	name: "subHeader",
 	store,
@@ -39,6 +39,9 @@ export default {
 		},
 		three() {
 			return th_three;
+		},
+		four() {
+			return th_four;
 		}
 	}
 };

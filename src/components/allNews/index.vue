@@ -13,7 +13,25 @@
 				<div class="news-container">
 					<section id="tab-page">
 						<div class="active">
-							<spinner v-if="allNewsLoading" height="500" mode="large"></spinner>
+							<div class="col-news-all content-placeholder" v-for="cap in 10" :key="cap" v-if="allNewsLoading">
+								<div class="news-prev">
+									<img class="news-prew-size" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQcAAAClAQMAAABrxqq1AAAAA1BMVEUmTKgfeyxbAAAAHElEQVQYGe3BAQ0AAADCIPunfg43YAAAAAAAnAsV6gAB/QBKcQAAAABJRU5ErkJggg==">
+								</div>
+								<div class="news-info">
+									<div class="content-placeholder">
+										<div class="container-loading h-line-5">
+											<div class="line width-20"></div>
+										</div>
+										<div class="container-loading h-line-3">
+											<div class="line width-40"></div>
+										</div>
+										<div class="container-loading">
+											<div class="line"></div>
+											<div class="line"></div>
+										</div>
+									</div>
+								</div>
+							</div>
 							<div v-if="allNewsLoading === false && allNewsTotalPages === 0" class="gt-center">
 								<div class="animated-gt-logo">
 									<img class="collectors" src="../../assets/img/animated_logo/collectors.svg">
@@ -25,7 +43,7 @@
 								<button class="btn-primory btn-40" @click="allNewsChangeCategory(newsCategory)">Перейти к новостям</button>
 							</div>
 							<router-link :to="{path: '/post/'+ post.id}" class="col-news-all" v-for="post in allNewsPosts" :key="post.id">
-								<div class="news-prev" v-if="post.image" :style="{ 'background-image': 'url(' + post.image + ')' }">
+								<div class="news-prev" v-if="post.better_featured_image" :style="{ 'background-image': 'url(' + post.better_featured_image.media_details.sizes['post-thumbnail'].source_url + ')' }">
 									<img class="news-prew-size" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQcAAAClAQMAAABrxqq1AAAAA1BMVEUmTKgfeyxbAAAAHElEQVQYGe3BAQ0AAADCIPunfg43YAAAAAAAnAsV6gAB/QBKcQAAAABJRU5ErkJggg==">
 								</div>
 								<div class="news-prev" v-else>
@@ -56,7 +74,6 @@
 <script>
 import store from "../../store/";
 import moment from "moment";
-import spinner from "../spinner/";
 import toast from "../toast/";
 import paginationBar from "../paginationBar/";
 import categoriesWidget from "../categoriesWidget/";
@@ -65,7 +82,6 @@ export default {
 	name: "allNews",
 	store,
 	components: {
-		spinner,
 		toast,
 		paginationBar,
 		categoriesWidget
